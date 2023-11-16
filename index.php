@@ -43,22 +43,22 @@
     <div class="page_width">
       <div class="banner_grid">
         <div class="banner_left">
-          <h3>Best in Dubai</h3>
+          <h3>Best in World</h3>
           <h2>Welcome To</h2>
           <h1>
-            Hello <span>Rihalers</span>
+            <span>RIHAL</span>
           </h1>
           <p>
-            Home Comfort provides home repair services in Dubai with
-            reasonable rates. We fix it right with home comfort professional
-            experts.
+          RIHAL provides smooth global bus booking services at budget-friendly rates.
+          We guarantee a seamless travel experience with our team of transportation experts. 
+          Book your ride with RIHAL for a comfortable and reliable travel experience.
           </p>
           <div class="btn_banner">
             <a href="javascript:void(0)">contact us</a>
             <a href="javascript:void(0)">learn more</a>
           </div>
         </div>
-        <div class="banner_right">
+        <div class="banner_right"><!-- FROM & TO DIV -->
           <div class="banner_img">
             <img src="./images/home/banner/banner.svg" alt="" />
           </div>
@@ -84,7 +84,7 @@
   <section class="explore_our_services section_margin">
     <div class="page_width">
       <div class="explore_our_service_head">
-        <h2>Explore our <span>Services</span></h2>
+        <h2> <span>Top Traveled </span>Routes</h2>
       </div>
       <div class="explore_our_services_grid">
 
@@ -93,10 +93,7 @@
         foreach ($explore_our_services_data_array  as $array) {
           generateServicesCard($array);
         }
-
-        // Add more calls for other services
         ?>
-
       </div>
     </div>
   </section>
@@ -114,10 +111,18 @@
 
         <div class="who_we_are_right">
           <h2>Who we <span>Are?</span></h2>
-          <p>Home Comfort is a leading multiple service provider company catering to your 360 needs with quality guaranteed. The aim and priority of Home Comfort are to add value to our consumers’ lives by providing smart solutions to all their problems. Our pride is providing the most extensive range of services. From home maintenance to personal assistance.
+          <p>"RIHAL, a premier all-encompassing service provider, attends to your 
+            comprehensive needs with an assurance of quality. Our commitment lies 
+            in enhancing the lives of our users by delivering intelligent solutions 
+            to all their concerns. We take pride in offering an extensive array of services, 
+            ranging from travel to personalized assistance.
           </p>
-          <p>We make sure that your safety is never compromised. This is why we hire all the staff under the roof of Home Comfort, just for your satisfaction. Our goal is to become the largest and most famous online home services platform and provide our customers with the best of services and experience. Our experts will give you the most satisfying experience and professionalism. On your demand, all of our best home maintenance and renovation services are available at the very right time and place.
-          </p>
+          <p>Your safety is our paramount concern, and to ensure this, every member of the RIHAL 
+            team is carefully selected for your satisfaction. Our ambition is to emerge as the 
+            leading and renowned online travel services platform, delivering unparalleled services 
+            and experiences to our customers. Count on our experts for a gratifying and professional 
+            travel experience. At your request, our top-notch travel services are available precisely 
+            when and where you need them.</p>
         </div>
 
       </div>
@@ -131,9 +136,8 @@
 
         <div class="company_authority_left">
           <h1>Company <span>Authority</span></h1>
-          <p>Basically, finding the right person to do up the works is very much important and for that, there are certain things you should keep in mind while appointing a service man. Analyze the best service provider who can perform the works well and give you desired results. You can search for professional home service companies online and get the best company that meets up your demands.
-          </p>
-          <p>Home Comfort is a leading multiple service provider company catering to your 360 needs with quality guaranteed. The aim and priority of Home Comfort are to add value to our consumers’ lives by providing smart solutions to all their problems. Our pride is providing the most extensive range of services. From home maintenance to personal assistance.
+          <p>Essentially, selecting the right individual for your tasks is crucial. When appointing a service professional, it's important to consider specific factors. Identify a top-notch service provider capable of delivering excellent results that align with your expectations. Explore online platforms to find reputable home service companies and choose the one that best suits your requirements.</p>
+          <p>RIHAL, a leading comprehensive service provider, addresses all your needs with a commitment to quality. Our primary goal is to enhance the lives of our consumers by offering intelligent solutions to their challenges. We take pride in delivering an extensive array of services, from home maintenance to personal assistance.
           </p>
         </div>
 
@@ -154,8 +158,7 @@
 
       <div class="our_clients_title">
         <h2>Our <span>Customers</span></h2>
-        <p>We make sure that your safety is never compromised. This is why we hire all the staff under the roof of Home Comfort, just for your satisfaction. Our goal is to become the largest and most famous online home services platform and provide our customers with the best of services and experience.
-        </p>
+        <p>We prioritize your safety without compromise. At RIHAL, all our staff is carefully selected in-house to guarantee your satisfaction. Our vision is to become the largest and most renowned online bus booking service, providing our customers with the best services and experiences.</p>
       </div>
 
       <div class="our_clients_grid">

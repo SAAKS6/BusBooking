@@ -288,6 +288,9 @@ header {
     padding-bottom: 20px;
     padding-left: 0;
 }
+.explore_our_services_white:hover .explore_our_services_title span img{
+    filter: invert(100%) brightness(1000%); /* Set invert to 100% to make it white */
+}
 
 .explore_our_services_white .explore_our_services_button {
     background: transparent;
