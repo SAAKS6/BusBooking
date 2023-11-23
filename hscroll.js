@@ -19,3 +19,11 @@ document.addEventListener("DOMContentLoaded", function () {
         servicesGrid.scrollLeft += e.deltaY;
     });
 });
+
+function getValue(clickedElement) {
+    // Get the text content of the clicked element
+    var textContent = clickedElement.innerText;
+
+    // Alert the text content (you can do whatever you want with it)
+    alert('Text Content: ' + textContent.toLowerCase());
+}

@@ -49,9 +49,9 @@
             <span>RIHAL</span>
           </h1>
           <p>
-          RIHAL provides smooth global bus booking services at budget-friendly rates.
-          We guarantee a seamless travel experience with our team of transportation experts. 
-          Book your ride with RIHAL for a comfortable and reliable travel experience.
+            RIHAL provides smooth global bus booking services at budget-friendly rates.
+            We guarantee a seamless travel experience with our team of transportation experts.
+            Book your ride with RIHAL for a comfortable and reliable travel experience.
           </p>
           <div class="btn_banner">
             <a href="javascript:void(0)">contact us</a>
@@ -59,9 +59,74 @@
           </div>
         </div>
         <div class="banner_right"><!-- FROM & TO DIV -->
-          <div class="banner_img">
-            <img src="./images/home/banner/banner.svg" alt="" />
-          </div>
+
+            <!-- <img src="./images/home/banner/banner.svg" alt="" /> -->
+            <!-- STARTING FOR BOOKING MENU -->
+            <div class="booking_menu_main">
+              <form action="" method="post" class="booking_form">
+
+                <div class="form_location"><!-- DIV START 1 -->
+                  <!-- FROM DROPE DOWN -->
+                  <div class="destination_dropedown dropeDown">
+                    <select name="depature" id="depature" required>
+                      <option value="" disabled selected>From<span>*</span></option>
+                      <option value="1">Jeddah</option>
+                      <option value="2">Makkah</option>
+                      <option value="3">Taif</option>
+                      <option value="4">Madina</option>
+                    </select>
+                  </div>
+
+                  <!-- LOGO -->
+                  <div class="arrow_img">
+                    <img src="./images//home//explore_our_services//two_way_arrow_black.svg" alt="Two Way Arrow">
+                  </div>
+
+                  <!-- FROM DROPE DOWN -->
+                  <div class="to_dropedown dropeDown">
+                    <select name="to" id="to" required>
+                      <option value="" disabled selected>To<span>*</span></option>
+                      <option value="1">Jeddah</option>
+                      <option value="2">Makkah</option>
+                      <option value="3">Taif</option>
+                      <option value="4">Madina</option>
+                    </select>
+                  </div>
+                </div><!-- DIV END 1 -->
+
+                <!-- TRIP TYPE -->
+                <div class="form_trip_type">
+                  <p class="oneway" onclick="getValue(this)">One Way</p>
+                  <p class="return" onclick="getValue(this)">Return</p>
+                  <p class="multicity" onclick="getValue(this)">Multicity</p>
+                </div>
+
+                <!-- DATE'S => Depature & Arrival -->
+
+                <div class="form_date"><!-- DIV START 2 -->
+                  <!-- Depature Date -->
+                  <div class="depature_date dates">
+                    <label for="depatureDate">Depature Date<span>*</span></label>
+                    <input type="date" id="depatureDate" name="depatureDate" 
+                    value="<?= date('Y-m-d') ?>" required>
+                  </div>
+
+                  <!-- Return Date => Only show for Round Trip-->
+                  <div class="return_date dates">
+                    <label for="return_date">Return Date<span>*</span></label>
+                    <input type="date" id="return_date" name="return_date" 
+                    value="<?= date('Y-m-d') ?>"  required>
+                  </div>
+                </div><!-- DIV END 2 -->
+
+                <div class="form-btn">
+                  <input type="submit" value="book now">
+                </div>
+                
+              </form>
+            </div>
+            <!-- ENDING FOR BOOKING MENU -->
+
         </div>
       </div>
     </div>
@@ -111,17 +176,17 @@
 
         <div class="who_we_are_right">
           <h2>Who we <span>Are?</span></h2>
-          <p>"RIHAL, a premier all-encompassing service provider, attends to your 
-            comprehensive needs with an assurance of quality. Our commitment lies 
-            in enhancing the lives of our users by delivering intelligent solutions 
-            to all their concerns. We take pride in offering an extensive array of services, 
+          <p>"RIHAL, a premier all-encompassing service provider, attends to your
+            comprehensive needs with an assurance of quality. Our commitment lies
+            in enhancing the lives of our users by delivering intelligent solutions
+            to all their concerns. We take pride in offering an extensive array of services,
             ranging from travel to personalized assistance.
           </p>
-          <p>Your safety is our paramount concern, and to ensure this, every member of the RIHAL 
-            team is carefully selected for your satisfaction. Our ambition is to emerge as the 
-            leading and renowned online travel services platform, delivering unparalleled services 
-            and experiences to our customers. Count on our experts for a gratifying and professional 
-            travel experience. At your request, our top-notch travel services are available precisely 
+          <p>Your safety is our paramount concern, and to ensure this, every member of the RIHAL
+            team is carefully selected for your satisfaction. Our ambition is to emerge as the
+            leading and renowned online travel services platform, delivering unparalleled services
+            and experiences to our customers. Count on our experts for a gratifying and professional
+            travel experience. At your request, our top-notch travel services are available precisely
             when and where you need them.</p>
         </div>
 
@@ -169,7 +234,7 @@
           generateOurClient($array);
         }
         ?>
-        
+
       </div>
     </div>
   </section>
@@ -179,7 +244,7 @@
   include "./footer.php";
   ?>
 
-<script src="hscroll.js"></script>
+  <script src="hscroll.js"></script>
 </body>
 
 </html>
