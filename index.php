@@ -60,72 +60,71 @@
         </div>
         <div class="banner_right"><!-- FROM & TO DIV -->
 
-            <!-- <img src="./images/home/banner/banner.svg" alt="" /> -->
-            <!-- STARTING FOR BOOKING MENU -->
-            <div class="booking_menu_main">
-              <form action="" method="post" class="booking_form">
+          <!-- STARTING FOR BOOKING MENU -->
+          <div class="booking_menu_main">
+            <form action="./index_process_form.php" method="post" class="booking_form">
 
-                <div class="form_location"><!-- DIV START 1 -->
-                  <!-- FROM DROPE DOWN -->
-                  <div class="destination_dropedown dropeDown">
-                    <select name="depature" id="depature" required>
-                      <option value="" disabled selected>From<span>*</span></option>
-                      <option value="1">Jeddah</option>
-                      <option value="2">Makkah</option>
-                      <option value="3">Taif</option>
-                      <option value="4">Madina</option>
-                    </select>
-                  </div>
-
-                  <!-- LOGO -->
-                  <div class="arrow_img">
-                    <img src="./images//home//explore_our_services//two_way_arrow_black.svg" alt="Two Way Arrow">
-                  </div>
-
-                  <!-- FROM DROPE DOWN -->
-                  <div class="to_dropedown dropeDown">
-                    <select name="to" id="to" required>
-                      <option value="" disabled selected>To<span>*</span></option>
-                      <option value="1">Jeddah</option>
-                      <option value="2">Makkah</option>
-                      <option value="3">Taif</option>
-                      <option value="4">Madina</option>
-                    </select>
-                  </div>
-                </div><!-- DIV END 1 -->
-
-                <!-- TRIP TYPE -->
-                <div class="form_trip_type">
-                  <p class="oneway" onclick="getValue(this)">One Way</p>
-                  <p class="return" onclick="getValue(this)">Return</p>
-                  <p class="multicity" onclick="getValue(this)">Multicity</p>
+              <div class="form_location"><!-- DIV START 1 -->
+                <!-- FROM DROPE DOWN -->
+                <div class="destination_dropedown dropeDown">
+                  <select name="depature_city" id="depature" required>
+                    <option value="" disabled selected>From<span>*</span></option>
+                    <option value="1">Jeddah</option>
+                    <option value="2">Makkah</option>
+                    <option value="3">Taif</option>
+                    <option value="4">Madina</option>
+                  </select>
                 </div>
 
-                <!-- DATE'S => Depature & Arrival -->
-
-                <div class="form_date"><!-- DIV START 2 -->
-                  <!-- Depature Date -->
-                  <div class="depature_date dates">
-                    <label for="depatureDate">Depature Date<span>*</span></label>
-                    <input type="date" id="depatureDate" name="depatureDate" 
-                    value="<?= date('Y-m-d') ?>" required>
-                  </div>
-
-                  <!-- Return Date => Only show for Round Trip-->
-                  <div class="return_date dates">
-                    <label for="return_date">Return Date<span>*</span></label>
-                    <input type="date" id="return_date" name="return_date" 
-                    value="<?= date('Y-m-d') ?>"  required>
-                  </div>
-                </div><!-- DIV END 2 -->
-
-                <div class="form-btn">
-                  <input type="submit" value="book now">
+                <!-- LOGO -->
+                <div class="arrow_img">
+                  <img src="./images//home//explore_our_services//two_way_arrow_black.svg" alt="Two Way Arrow">
                 </div>
-                
-              </form>
-            </div>
-            <!-- ENDING FOR BOOKING MENU -->
+
+                <!-- FROM DROPE DOWN -->
+                <div class="to_dropedown dropeDown">
+                  <select name="arrival_city" id="to" required>
+                    <option value="" disabled selected>To<span>*</span></option>
+                    <option value="1">Jeddah</option>
+                    <option value="2">Makkah</option>
+                    <option value="3">Taif</option>
+                    <option value="4">Madina</option>
+                  </select>
+                </div>
+              </div><!-- DIV END 1 -->
+
+              <!-- TRIP TYPE -->
+              <div class="form_trip_type">
+                <p class="oneway" onclick="selectedValue(this)">One Way</p>
+                <p class="return" onclick="selectedValue(this)">Return</p>
+                <p class="multicity" onclick="selectedValue(this)">Multicity</p>
+                <!-- Hidden input field to store the selected value -->
+                <input type="hidden" name="selectedTripType" id="selectedTripType">
+              </div>
+
+              <!-- DATE'S => Depature & Arrival -->
+
+              <div class="form_date"><!-- DIV START 2 -->
+                <!-- Depature Date -->
+                <div class="depature_date dates">
+                  <label for="depatureDate">Depature Date<span>*</span></label>
+                  <input type="date" id="depatureDate" name="depature_Date" value="<?= date('Y-m-d') ?>" required>
+                </div>
+
+                <!-- Return Date => Only show for Round Trip-->
+                <div class="return_date dates">
+                  <label for="return_date">Return Date<span>*</span></label>
+                  <input type="date" id="return_date" name="return_date" value="<?= date('Y-m-d') ?>" required>
+                </div>
+              </div><!-- DIV END 2 -->
+
+              <div class="form-btn">
+                <input type="submit" value="book now">
+              </div>
+
+            </form>
+          </div>
+          <!-- ENDING FOR BOOKING MENU -->
 
         </div>
       </div>
