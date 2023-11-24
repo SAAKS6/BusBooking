@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RIHAL - SCHEDUAL</title>
+    <title>RIHAL - TICKET</title>
     <link rel="stylesheet" href="style.css">
 
     <!-- PROGRESS BAR SECTION  -->
@@ -12,7 +12,7 @@
     include "./components/schedual/progress_bar_section/progress_bar_section_card.php";
     require "./arrays/progress_bar_section/progress_bar_section_data.php";
     ?>
-    
+
     <!-- TICKET DETAILS CLASS  -->
     <?php
     include_once "./TICKET-OBJECT.php";
@@ -34,12 +34,13 @@
             <div class="progress_flex">
 
                 <?php
-                $td->setProgressBar(4);
-                // echo $td->getProgressBar();
-                $form_trip_type = $td->getType();
-                
-                // $result = $td->getType();
-                // echo gettype($result);
+                if ($td->getType() == 1) { //one way
+                    $td->setProgressBar(3);
+                } else if ($td->getType() == 2) { //return
+                    $td->setProgressBar(4);
+                }
+
+
                 if ($td->getType() == 1) { //IF TRIP SELECTED: ONE WAY
                     foreach ($progress_section_data_array_one_way  as $array) {
                         generateProgressSection($array, $td->getProgressBar());
@@ -57,7 +58,7 @@
 
     <!-- SCHEDUAL SECTION -->
     <!-- NEED TO WRITE THE SQL QUERY TO FETCH DATA OF BUS SCHEDUAL AND PASS IT TO FUNCTION -->
-    <section class="schedual_section section_margin">
+    <section class="verify_ticket_section section_margin">
         <div class="page_width">
             <div class="schedual_flex">
                 <div class="schedual_titles">
@@ -70,23 +71,44 @@
                     <h3>Seats</h3>
                     <h3></h3>
                 </div>
+
                 <div>
                     <?php
                     try {
-                        generateDepatureList();//change this function with generateTicket()
+                        generateReturnList($td->getDCity());
                     } catch (\Throwable $th) {
-                        echo "QUERRY EXECUTION / FUNTION CALL ERROR (SCHEDUAL.php:67)";
+                        echo "QUERRY EXECUTION / FUNTION CALL ERROR (RETURN.php:78)";
                     }
                     ?>
                 </div>
+
                 <hr>
-                <a href="./passanger_info.php" class="previous_btn" onclick="<?php $td->setProgressBar(3)?>"> < Previous</a>
+                
             </div>
+
+            <div class="verify_ticket_btn">
+
+                    <div class="previous_Btn">
+                        <?php
+                        if ($td->getType() == 1) { //one way
+                            echo '<a href="./passanger_info.php" class="previous_btn" onclick="' . $td->setProgressBar(3) . '">< Previous</a>';
+                        } else if ($td->getType() == 2) { //return
+                            echo '<a href="./passanger_info.php" class="previous_btn" onclick="' . $td->setProgressBar(4) . '">< Previous</a>';
+                        }
+                        ?>
+                    </div>
+
+                    <form action="./payment.php"  method="post">
+                    <!-- <div class="next_Btn"> -->
+                            <input type="submit" value="Next" name="next" 
+                            class="next_btn" data-sqlQuery-id=<?php $td->getType(); ?>>
+                        <!-- </div> -->
+                    </form>
+                </div>
+
+
         </div>
     </section>
-
-<!-- CREATE PAYMENT OPTION -->
-
     <!-- FOOTER SECTION -->
     <?php
     include "./footer.php";

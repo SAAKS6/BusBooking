@@ -981,7 +981,7 @@ header {
     display: flex;
     flex-direction: row;
     gap: 105px;
-    position: relative;
+    /* position: relative; */
     left: 75px;
     padding: 25px 0px;
 }
@@ -991,9 +991,6 @@ header {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    position: relative;
-    left: -50px;
-    top: -9px;
 }
 
 .progress_book_now input {
@@ -1101,14 +1098,22 @@ header {
     border: 2px solid rgb(255,255,255,0.5);
     border-radius: 25px;
     backdrop-filter: blur(15px);
+    height: 90vh;
+}
+
+.information .main_form {
+    margin: 30px 35px;
+    margin-top: 80px;
+    border-bottom: 1px solid black;
+    padding-bottom: 30px;
 }
 
 .information .passanger_info {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 5px;
-    margin: 30px 35px;
-    margin-top: 80px;
+    width: 100%;
+    height: 100%;
 }
 
 .information .passanger_info .left{
@@ -1207,11 +1212,12 @@ header {
 .form_bottom{
     position: absolute;
     bottom: 0;
-    width: 900px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    width: 100%;
 }
+
 
 .form_bottom .next_btn:hover {
     color: #F9F9F9;
@@ -1222,7 +1228,7 @@ header {
     background-color: #058b8c;
     border: none;
     border-radius: 15px;
-    padding: 9px 40px;
+    padding: 10px 40px;
     color: white;
     display: flex;
     align-items: center;
@@ -1234,8 +1240,60 @@ header {
     /* align-self: flex-end; */
 }
 
-/* .passanger_info hr{
-    position: relative;
-    display: unset;
-    color: #8d0f11;
-} */
+.payment_option_grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-content: space-evenly;
+    border-bottom: 2px solid #058B8C;
+    padding: 25px;
+}
+
+.option_img {
+    border-bottom: 2px solid #058B8C;
+    border-radius: 25px;
+    width: 280px;
+    height: 70px;
+    background-color:#F9F9F9;
+    padding: 5px;
+}
+
+.option_img img{
+    width: 100%;
+    height: 100%;
+}
+
+.payment_outter .information{
+    border: 2px dashed #058B8C;
+}
+
+.information .payment_info_outter{
+    height: 100%;
+    padding: 0px;
+}
+
+.information .payment_form_bottom{
+    position: unset;
+    
+}
+
+.verify_ticket_btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.verify_ticket_section .schedual_flex{
+    border-bottom: none;
+    padding-bottom: 0px;
+}
+
+.verify_ticket_section .verify_ticket_btn{
+    border: 2px dashed #058B8C;
+    border-top: none;
+    padding: 0px;
+}
+
+.next_btn:hover {
+    color: #F9F9F9;
+    font-weight: 700;
+}
