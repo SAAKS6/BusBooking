@@ -10,6 +10,8 @@ class TicketDetails
     private $Age = 0; // replace zero to current date - DOB
     private $Tel = 0;
     private $Email = 0;
+    private $Slist = 0;
+    private $Rlist = 0;
 
     private $Type = 0;
     private $DCity = []; // make it array
@@ -21,6 +23,39 @@ class TicketDetails
 
     private $progress_bar = 0;
 
+    public function clearArrays() {
+        $this->DCity = [];
+        $this->ACity = [];
+        $this->DDate = [];
+        $this->RDate = [];
+        $this->Price = [];
+    }
+
+    public function showData() {
+        echo "Personal Information:\n";
+        echo "First Name: " . $this->Fname . "<br>";
+        echo "Middle Name: " . $this->Mname . "<br>";
+        echo "Last Name: " . $this->Lname . "<br>";
+        echo "ID Number: " . $this->IDnumber . "<br>";
+        echo "Gender: " . $this->Gender . "<br>";
+        echo "Date of Birth: " . $this->DOB . "<br>";
+        echo "Age: " . $this->Age . "<br>";
+        echo "Telephone: " . $this->Tel . "<br>";
+        echo "Email: " . $this->Email . "<br>";
+
+        echo "\nBooking Information:\n";
+        echo "Type: " . $this->Type . "<br>";
+        echo "Departure Cities: " . implode("<br>", $this->DCity) . "<br>";
+        echo "Arrival Cities: " . implode("<br>", $this->ACity) . "<br>";
+        echo "Departure Dates: " . implode("<br>", $this->DDate) . "<br>";
+        echo "Return Dates: " . implode("<br>", $this->RDate) . "<br>";
+        echo "Prices: " . implode("<br>", $this->Price) . "<br>";
+        echo "Total Price: " . $this->Totalprice . "<br>";
+
+        echo "\nOther Information:\n";
+        echo "Progress Bar: " . $this->progress_bar . "<br>";
+    }
+    
     public function getProgressBar()
     {
         return $this->progress_bar;
@@ -109,6 +144,7 @@ class TicketDetails
         $this->DOB = $DOB;
         // Update Age when setting DOB
         $this->Age = $this->calculateAge();
+        $this->calculateAge();
     }
 
     // Getter and Setter for Age
@@ -125,7 +161,7 @@ class TicketDetails
         $currentTimestamp = time();
         $ageInSeconds = $currentTimestamp - $dobTimestamp;
         $ageInYears = floor($ageInSeconds / (365 * 24 * 60 * 60));
-        return $ageInYears;
+        $this->Age = $ageInYears;
     }
 
     // Getter and Setter for Tel
@@ -150,6 +186,28 @@ class TicketDetails
         $this->Email = $Email;
     }
 
+    // Getter and Setter for Slist
+    public function getSlist()
+    {
+        return $this->Slist;
+    }
+
+    public function setSlist($Slist)
+    {
+        $this->Slist = $Slist;
+    }
+
+    // Getter and Setter for Rlist
+    public function getRlist()
+    {
+        return $this->Rlist;
+    }
+
+    public function setRlist($Rlist)
+    {
+        $this->Rlist = $Rlist;
+    }
+
     // Getter and Setter for Type
     public function getType()
     {
@@ -162,9 +220,12 @@ class TicketDetails
     }
 
     // Getter and Setter for DCity
-    public function getDCity()
-    {
-        return $this->DCity;
+    public function getDCity($index) {
+        if (isset($this->DCity[$index])) {
+            return $this->DCity[$index];
+        } else {
+            return null;  // or handle the case when the index is out of bounds
+        }
     }
 
     public function setDCity($DCity)
@@ -173,9 +234,12 @@ class TicketDetails
     }
 
     // Getter and Setter for ACity
-    public function getACity()
-    {
-        return $this->ACity;
+    public function getACity($index) {
+        if (isset($this->ACity[$index])) {
+            return $this->ACity[$index];
+        } else {
+            return null;  // or handle the case when the index is out of bounds
+        }
     }
 
     public function setACity($ACity)
@@ -184,9 +248,12 @@ class TicketDetails
     }
 
     // Getter and Setter for DDate
-    public function getDDate()
-    {
-        return $this->DDate;
+    public function getDDate($index) {
+        if (isset($this->DDate[$index])) {
+            return $this->DDate[$index];
+        } else {
+            return null;  // or handle the case when the index is out of bounds
+        }
     }
 
     public function setDDate($DDate)
@@ -195,9 +262,12 @@ class TicketDetails
     }
 
     // Getter and Setter for RDate
-    public function getRDate()
-    {
-        return $this->RDate;
+    public function getRDate($index) {
+        if (isset($this->RDate[$index])) {
+            return $this->RDate[$index];
+        } else {
+            return null;  // or handle the case when the index is out of bounds
+        }
     }
 
     public function setRDate($RDate)
@@ -206,19 +276,29 @@ class TicketDetails
     }
 
     // Getter and Setter for Price
-    public function getPrice()
-    {
-        return $this->Price;
+    public function getPrice($index) {
+        if (isset($this->Price[$index])) {
+            return $this->Price[$index];
+        } else {
+            return null;  // or handle the case when the index is out of bounds
+        }
     }
 
     public function setPrice($Price)
     {
         $this->Price[] = $Price;
+        $this->calculateTotalprice();
     }
 
     // Getter and Setter for Totalprice
     public function getTotalprice()
     {
+        return $this->Totalprice;
+    }
+
+    public function calculateTotalprice()
+    {
+        $this->Totalprice = array_sum($this->Price);
         return $this->Totalprice;
     }
 

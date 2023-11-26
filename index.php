@@ -10,6 +10,11 @@
   <!-- INCLUDING PHP FILES -->
 
 
+  <!-- BOOKING FORM SECTION - FORM LOCATION -->
+  <?php
+  require "./arrays/booking_form/form_location_data.php";
+  ?>
+
   <!-- AFTER BANNER -->
   <?php
   include "./components/homepage/after_banner/after_Banner.php";
@@ -28,6 +33,12 @@
   <?php
   include "./components/homepage/our_clients/client_review_card.php";
   require "./arrays/our_clients/our_clients_data.php";
+  ?>
+
+  <!-- TICKET DETAILS CLASS  -->
+  <?php
+  include_once "./TICKET-OBJECT.php";
+  $td = $_SESSION['TD'];
   ?>
 
 </head>
@@ -67,12 +78,8 @@
               <div class="form_location"><!-- DIV START 1 -->
                 <!-- FROM DROPE DOWN -->
                 <div class="destination_dropedown dropeDown">
-                  <select name="depature_city" id="depature" required>
+                  <select name="departure_city" id="from" required>
                     <option value="" disabled selected>From<span>*</span></option>
-                    <option value="1">Jeddah</option>
-                    <option value="2">Makkah</option>
-                    <option value="3">Taif</option>
-                    <option value="4">Madina</option>
                   </select>
                 </div>
 
@@ -85,10 +92,6 @@
                 <div class="to_dropedown dropeDown">
                   <select name="arrival_city" id="to" required>
                     <option value="" disabled selected>To<span>*</span></option>
-                    <option value="1">Jeddah</option>
-                    <option value="2">Makkah</option>
-                    <option value="3">Taif</option>
-                    <option value="4">Madina</option>
                   </select>
                 </div>
               </div><!-- DIV END 1 -->
@@ -108,11 +111,11 @@
                 <!-- Depature Date -->
                 <div class="depature_date dates">
                   <label for="depatureDate">Depature Date<span>*</span></label>
-                  <input type="date" id="depatureDate" name="depature_Date" value="<?= date('Y-m-d') ?>" required>
+                  <input type="date" id="departureDate" name="departure_Date" value="<?= date('Y-m-d') ?>" required>
                 </div>
 
                 <!-- Return Date => Only show for Round Trip-->
-                <div class="return_date dates">
+                <div class="return_date dates return_date_hide">
                   <label for="return_date">Return Date<span>*</span></label>
                   <input type="date" id="return_date" name="return_date" value="<?= date('Y-m-d') ?>" required>
                 </div>
@@ -121,7 +124,7 @@
               <div class="form-btn">
                 <input type="submit" value="book now">
               </div>
-
+              
             </form>
           </div>
           <!-- ENDING FOR BOOKING MENU -->
@@ -243,7 +246,24 @@
   include "./footer.php";
   ?>
 
+  <script>
+    var formLocationDataArray = <?php echo json_encode($form_location_data_array); ?>;
+    // var $fromcity;
+  </script>
+
   <script src="hscroll.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Call the function to populate the "From" dropdown
+      populateDropdown('from', 'to', formLocationDataArray);
+    });
+
+    document.getElementById('from').addEventListener('change', function() {
+      populateToDropdown(this.value, 'to', formLocationDataArray)
+    });
+  </script>
+
 </body>
 
 </html>

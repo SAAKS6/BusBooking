@@ -27,9 +27,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $_SESSION['TD'] = $td;
 
+        try {
+            insertUser();
+        } catch (\Throwable $th) {
+            echo "Error: PIPF.PHP:33";
+        }
+
         include('./verify_ticket.php');
     } else {
         // If selectedTripType is not set in the POST data, handle the error
-        echo "Error: Trip type not selected.";
+        echo "Error: PIPF.PHP:40";
     }
+}
+
+function insertUser()
+{
+    include_once "./db.php";
+    $td = $_SESSION['TD'];
+    $td->getFname();
+    
+    if($td->getType()==1){
+        $sqlQuery = 'INSERT INTO user (Fname, Mname, Lname, Cnic, Gender, Tel, Dob, Email, Status, Dschedual)
+    VALUES ("' . $td->getFname() . '", "' . $td->getMname() . '", "' . $td->getLname() . '", "' . $td->getIDnumber() . '", "' . $td->getGender() . '", "' . $td->getTel() . '", "' . $td->getDOB() . '", "' . $td->getEmail() . '", 0, "' . $td->getSlist() . '")';
+
+    } else if ($td->getType()==2){
+        $sqlQuery = 'INSERT INTO user (Fname, Mname, Lname, Cnic, Gender, Tel, Dob, Email, Status, Dschedual , Rschedual)
+    VALUES ("' . $td->getFname() . '", "' . $td->getMname() . '", "' . $td->getLname() . '", "' . $td->getIDnumber() . '", "' . $td->getGender() . '", "' . $td->getTel() . '", "' . $td->getDOB() . '", "' . $td->getEmail() . '", 0, "' . $td->getSlist() . '", "' . $td->getRlist() . '")';
+
+    }
+    // Execute the SQL query and check if it was successful.
+    if ($conn->query($sqlQuery) === true) {
+        // If the query was successful, display a success message.
+        echo "New record created successfully";
+    } else {
+        // If there was an error with the query, display an error message along with the details of the error.
+        echo "Error: PIPF.PHP:52";
+    }
+    // Close the database connection.
+    $conn->close();
 }

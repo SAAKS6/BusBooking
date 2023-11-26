@@ -303,6 +303,10 @@ header {
     font-weight: 700;
 }
 
+.banner_right .booking_form .form_date .return_date_hide {
+    display: none;
+}
+
 /* FORM: BOOK NOW BUTTON(INPUT[type="submit"]) */
 .form-btn {
     display: flex;
@@ -949,50 +953,286 @@ header {
 .schedual_flex{
     display: flex;
     flex-direction: column;
-    border: 2px dashed #058B8C;
-    padding: 25px 0px;
-}
-
-.schedual_titles{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-
-.schedual_titles h3{
-    border-bottom: 2px solid #058B8C;
-    border-radius: 25px;
-    padding: 15px;
-}
-
-.schedual_titles h3:nth-child(1){
-    border-radius: 15px;
-}
-
-/* .schedual_titles h3:nth-child(4){
-    border: none;
-} */
-
-.schedual_titles h3:last-child{
-    border: none;
-}
-
-.schedual_list{
-    display: flex;
-    flex-direction: row;
-    gap: 105px;
-    /* position: relative; */
-    left: 75px;
-    padding: 25px 0px;
-}
-
-.schedual_list .progress_book_now {
-    display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
+    border: 2px dashed #058B8C;
+    padding: 25px 25px;
 }
 
+.schedual_flex a{
+    align-self: flex-start;
+    
+}
+
+.table_titles{
+    padding: 0px 25px;
+    width: 100%;
+    
+}
+
+.table_titles tr{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+
+}
+
+.table_titles th{
+    border-bottom: 2px solid #C4C4C4;
+    border-radius:10px;
+    padding: 15px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.table_titles th:hover{
+    border-bottom: 2px solid #058B8C;
+    font-weight: 700;
+}
+
+.table_titles th:last-child{
+    border-bottom: none;
+    border-radius:10px;
+    width: 100%;
+}
+/*  */
+.table_list{
+    padding: 25px 25px;
+    width: 100%;
+}
+
+.table_list tr{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    padding: 5px;
+    border-bottom: 2px dashed #C4C4C4;
+}
+
+.table_list tr:hover{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    border-bottom: 2px dashed #058B8C;
+}
+
+.table_list td{
+    padding: 15px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.progress_book_now input {
+    text-decoration: none;
+    color: #1e1e1e;
+    text-transform: uppercase;
+    font-weight: 500;
+    border: 2px solid #1e1e1e;
+    border-radius: 25px;
+    padding: 8px 15px;
+    background: transparent;
+}
+
+.progress_book_now input:hover {
+    color: #ffffff;
+    background-color: #058B8C;
+    border: 2px solid #058B8C;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.previous_btn:hover {
+    color: #F9F9F9;
+    font-weight: 700;
+}
+
+.previous_btn {
+    background-color: #058b8c;
+    border-radius: 15px;
+    padding: 8px 15px;
+    color: white;
+    text-decoration: none;
+}
+
+/* PASSANGER INFORMATION SECTION CSS STARTS HERE */
+.passanger_info_section .page_width .Passanger_info_flex{
+    background-color: #F9F9F9;
+    border: 2px dashed #058B8C;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+}
+
+.Passanger_info_flex .top_form_graphics{
+    width: 35%;
+    height: 16%;
+    position: absolute;
+    z-index: 1;
+    top:-13px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    filter: drop-shadow(-2px -1px 0px #000000);
+    filter: drop-shadow(2px 1px 0px #000000);
+}
+
+.Passanger_info_flex .top_form_graphics img{
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0px 2px 1px #000000);
+}
+
+.Passanger_info_flex .top_form_graphics h3{
+    position: relative;
+    top: -45px;
+    right: 0px;
+    left: 0px;
+    color: #FFF;
+    font-size: 27px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -0.9px;
+}
+
+/* PASSANGER INFO TABLE */
+
+.Passanger_info_flex .table_list{
+    padding: 25px;
+    width: 100%;
+}
+
+.Passanger_info_flex .table_list tr{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    padding: 5px;
+    border-bottom: 2px dashed #C4C4C4;
+}
+
+.Passanger_info_flex .table_list tr:hover{
+    border-bottom: 2px dashed #058B8C;
+}
+
+.Passanger_info_flex .table_list td{
+    padding: 15px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.Passanger_info_flex .table_list tr td input{
+    border: none;
+    
+    background-color: #F9F9F9;
+    border-bottom: 2px solid #C4C4C4;
+    border-radius: 15px;
+
+    color: black;
+    font-size: 18px;
+
+    padding: 10px 15px;
+
+    /* width: 100%; */
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.Passanger_info_flex .table_list tr td input:hover{
+    border-bottom: 2px solid #058B8C;
+    font-weight: 500;
+}
+
+.Passanger_info_flex .table_list .dropeDown select {
+    /* Removing arrow from the Drope down's */
+    appearance: none;
+    border: none;
+
+    background-color: #F9F9F9;
+    border-bottom: 1px solid #058B8C;
+    border-radius: 15px;
+    
+    color: black;
+    font-size: 18px;
+    
+    padding: 10px 65px;
+
+    
+    /* width: 100%; */
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.Passanger_info_flex .table_list .dropeDown select:hover {
+    text-align: left;
+}
+
+.Passanger_info_flex .table_list .dropeDown select:hover {
+    cursor: pointer;
+    color: #058B8C;
+    font-weight: 500;
+}
+
+.Passanger_info_flex .table_list input[type='date'] {
+    border: none;
+    
+    border-bottom: 2px solid #058B8C;
+    border-radius: 15px;
+
+    color: black;
+    font-size: 18px;
+
+    padding: 10px 43px;
+    
+    text-align: center;
+}
+
+.Passanger_info_flex .table_list input[type='date']:hover {
+    cursor: pointer;
+    color: #058B8C;
+    font-weight: 500;
+}
+
+.Passanger_info_flex .table_list tr:last-child{
+    border-bottom: none;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+.Passanger_info_flex .table_list tr:last-child .previous_btn{
+    width: fit-content;
+}
+
+.Passanger_info_flex .table_list tr:last-child .previous_flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 0px;
+    padding-top: 5px;
+}
+
+.Passanger_info_flex .table_list tr:last-child .progress_book_now{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 0px;
+}
+
+.Passanger_info_flex .table_list tr:last-child td:last-child{
+    padding: 0px;
+    padding-top: 0px;
+}
+
+/*  */
+/* 
 .progress_book_now input {
     text-decoration: none;
     color: #1e1e1e;
@@ -1012,213 +1252,6 @@ header {
     cursor: pointer;
 }
 
-.schedual_flex hr{
-    margin: 25px 10px 0px 10px
-}
-
-.previous_btn:hover {
-    color: #F9F9F9;
-    font-weight: 700;
-}
-
-.previous_btn {
-    background-color: #058b8c;
-    border-radius: 15px;
-    padding: 10px 20px;
-    color: white;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    width: fit-content;
-    margin: 25px 15px 0px 15px;
-}
-
-/* PASSANGER INFORMATION SECTION CSS STARTS HERE */
-.passanger_info_section .page_width .Passanger_info_flex{
-    background-color: #F9F9F9;
-    border: 2px dashed #058B8C;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.Passanger_info_flex .information hr{
-    margin: 25px 25px 0px 25px;
-    
-}
-
-.passanger_info_section .page_width .Passanger_info_flex .previous_btn{
-    margin: 25px;
-    align-self: flex-start;
-}
-
-.Passanger_info_flex .top_form_graphics{
-    width: 50%;
-    height: 16%;
-    position: absolute;
-    z-index: 1;
-    top:-15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    filter: drop-shadow(-2px -1px 0px #000000);
-    filter: drop-shadow(2px 1px 0px #000000);
-}
-
-.Passanger_info_flex .top_form_graphics img{
-    width: 100%;
-    height: 100%;
-    filter: drop-shadow(0px 2px 1px #000000);
-}
-
-.Passanger_info_flex .top_form_graphics h3{
-    position: relative;
-    top: -60px;
-    right: 0px;
-    left: 0px;
-    color: #FFF;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    letter-spacing: -0.9px;
-}
-
-.information{
-    width:100%;
-    height: 100%;
-    margin-top: 25px;
-}
-
-.information .form_top{
-    width: 100%;
-    height: 100%;
-    border: 2px solid rgb(255,255,255,0.5);
-    border-radius: 25px;
-    backdrop-filter: blur(15px);
-    height: 90vh;
-}
-
-.information .main_form {
-    margin: 30px 35px;
-    margin-top: 80px;
-    border-bottom: 1px solid black;
-    padding-bottom: 30px;
-}
-
-.information .passanger_info {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5px;
-    width: 100%;
-    height: 100%;
-}
-
-.information .passanger_info .left{
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-.information .passanger_info .left label{
-    padding: 15px 30px;
-    border: none;
-    color: black;
-    font-size: 18px;
-    font-weight: 500;
-    border-top: 2px solid #058B8C;
-    border-left: 2px solid #058B8C;
-    border-radius: 15px;
-}
-
-.information .passanger_info .left label:hover{
-    color: #058B8C;
-    font-weight: 700;
-}
-
-.information .passanger_info .right{
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-.information .passanger_info .right input{
-    border: none;
-    background-color: #F9F9F9;
-    border-bottom: 2px solid #058B8C;
-    border-right: 2px solid #058B8C;
-    border-radius: 25px;
-    color: black;
-    font-size: 18px;
-    padding: 14px 30px;
-    text-align: center;
-    text-transform: uppercase;
-}
-
-.information .passanger_info .dob{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 25px;
-}
-
-.information .passanger_info .dropeDown select {
-    /* Removing arrow from the Drope down's */
-    appearance: none;
-    border: none;
-    color: #1E1E1E;
-    font-size: 18px;
-    font-weight: 600;
-    background: transparent;
-    padding: 15px 30px;
-    border-bottom: 2px solid #058B8C;
-    border-radius: 15px;
-    width: 100%;
-    text-align: center;
-    text-transform: uppercase;
-}
-
-.information .passanger_info .dropeDown select:hover {
-    cursor: pointer;
-    color: #058B8C;
-    font-weight: 700;
-}
-
-.information .passanger_info input[type='date'] {
-    border: none;
-    color: black;
-    font-size: 18px;
-    font-weight: 600;
-    background: transparent;
-    padding: 15px 30px;
-    border-bottom: 2px solid #058B8C;
-    border-radius: 15px;
-    text-align: center;
-}
-
-.information .passanger_info input[type='date']:hover {
-    cursor: pointer;
-    color: #058B8C;
-    font-weight: 700;
-}
-
-.form_top{
-    position: relative;
-    padding-bottom: 80px;
-}
-
-.form_bottom{
-    position: absolute;
-    bottom: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-}
-
-
 .form_bottom .next_btn:hover {
     color: #F9F9F9;
     font-weight: 700;
@@ -1237,9 +1270,9 @@ header {
     margin: 25px 15px 0px 15px;
     font-size: 16px;
     margin: 25px;
-    /* align-self: flex-end; */
-}
+} */
 
+/* PAYMENT.PHP CSS STARTS HERE */
 .payment_option_grid{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;

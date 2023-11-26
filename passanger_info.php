@@ -62,72 +62,73 @@
     <!-- PASSANGER INFO SECTION -->
     <section class="passanger_info_section section_margin">
         <div class="page_width">
-            <div class="Passanger_info_flex">
+            <div class="Passanger_info_flex ">
                 <div class="top_form_graphics">
                     <img src="./images//form//form_top_graphics.svg" alt="Passanger Information">
                     <h3>Passanger Information</h3>
                 </div>
-                <div class="information">
-                    <div class="form_top">
-                        <form action="./passanger_info_process_form.php" method="post" class="main_form">
-                            <!-- PASSANGER INFO -->
-                            <div class="passanger_info">
-                                <div class="left">
-                                    <label for="fname">First Name: </label>
-                                    <label for="mname">Middle Name: </label>
-                                    <label for="lname">Last Name: </label>
-                                    <label for="idnum">CNIC/ID Number: </label>
-                                    <label for="gender">Gender: </label>
-                                    <label for="tel">Phone Number:<span>*</span></label>
-                                    <label for="dob">D.O.B:<span>*</span></label>
-                                    <label for="email">Email:<span>*</span></label>
+                <table class="table_list">
+                    <form action="./passanger_info_process_form.php" method="post" class="passanger_form">
+                        <tr>
+                            <td>
+                                <input type="text" name="fname" id="fname" placeholder="enter first name" required>
+                            </td>
+                            <td>
+                                <input type="text" name="mname" id="mname" placeholder="enter middle name">
+                            </td>
+                            <td>
+                                <input type="text" name="lname" id="lname" required placeholder="enter last name">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="idnum" id="idnum" required placeholder="Enter cnic">
+                            </td>
+                            <td>
+                                <div class="Gender_dropedown dropeDown">
+                                    <select name="gender" id="gender" required>
+                                        <option value="" disabled selected>select gender<span>*</span></option>
+                                        <option value="1">Male</option>
+                                        <option value="2">Female</option>
+                                    </select>
                                 </div>
-                                <div class="right">
-                                    <input type="text" name="fname" id="fname" placeholder="first name" required>
-                                    <input type="text" name="mname" id="mname" placeholder="middle name">
-                                    <input type="text" name="lname" id="lname" required placeholder="last name">
-                                    <input type="text" name="idnum" id="idnum" required placeholder="CNIC / ID">
-                                    <div class="Gender_dropedown dropeDown">
-                                        <select name="gender" id="gender" required>
-                                            <option value="" disabled selected>select<span>*</span></option>
-                                            <option value="1">Male</option>
-                                            <option value="2">Female</option>
-                                        </select>
-                                    </div>
-                                    <input type="number" name="tel" id="tel" placeholder="03xx xxxx xxxx">
-                                    <input type="date" id="dob" name="dob" value="<?= date('Y-m-d') ?>" required>
-                                    <input type="text" name="email" id="email" placeholder="example@gmail.com" required>
-                                </div>
+                            </td>
+                            <td>
+                                <input type="date" id="dob" name="dob" value="<?= date('Y-m-d') ?>" required>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="number" name="tel" id="tel" placeholder="Enter number">
+                            </td>
+                            <td></td>
+                            <td>
+                                <input type="text" name="email" id="email" placeholder="Enter email" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="previous_flex">
+                                <?php
+
+                                if ($td->getType() == 1) { //one way
+                                    echo '<a href="./schedual.php" class="previous_btn" onclick="' . $td->setProgressBar(1) . '">< Previous</a>';
+                                } else if ($td->getType() == 2) { //return
+                                    echo '<a href="./return.php" class="previous_btn" onclick="' . $td->setProgressBar(2) . '">< Previous</a>';
+                                }
+                                ?>
+                            </td>
+                            
+                            <td>
+                            <div class="progress_book_now">
+                                <input type="submit" value="Next >" class="next_btn">
                             </div>
-                    </div>
-
-
-                    <div class="form_bottom">
-
-                        <div class="previous_Btn">
-
-                            <?php
-
-                            if ($td->getType() == 1) { //one way
-                                echo '<a href="./schedual.php" class="previous_btn" onclick="' . $td->setProgressBar(1) . '">< Previous</a>';
-                            } else if ($td->getType() == 2) { //return
-                                echo '<a href="./return.php" class="previous_btn" onclick="' . $td->setProgressBar(2) . '">< Previous</a>';
-                            }
-                            ?>
-
-                        </div>
-                        <div class="next_Btn">
-                            <input type="submit" value="Next >" class="next_btn">
-                        </div>
-
-                        </form>
-
-
-
-                    </div>
-                </div>
+                            </td>
+                        </tr>
+                    </form>
+                </table>
             </div>
-
+        </div>
     </section>
 
 

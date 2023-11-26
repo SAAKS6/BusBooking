@@ -75,51 +75,47 @@
                     }
                     ?>
                 </div>
-
-                <div class="information">
-                    <div class="payment_info_outter form_top">
-                        <form action="./generateTicket.php" method="post" class="main_form">
-                            <!-- CARD INFO -->
-                            <div class="payment_info passanger_info">
-                                <div class="left">
-                                    <label for="credit_card_number">Credit Card Number: </label>
-                                    <label for="cvv">CVV: </label>
-                                    <label for="exp">Exp: <span>*</span></label>
-                                </div>
-                                <div class="right">
-                                    <input type="text" name="credit_card_number" id="credit_card_number" placeholder="xxxx xxxx xxxx" required>
-                                    <input type="text" name="cvv" id="cvv" placeholder="0xx" required>
+                <div class="schedual_flex Passanger_info_flex">
+                    <table class="table_list" style="padding-bottom: 0px;">
+                        <form action="./generateTicket.php" method="post" class="passanger_form">
+                            <tr>
+                                <td>
+                                    <input type="text" name="credit_card_number" id="credit_card_number" placeholder="0xxxxxxxxxxx" required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="text" name="cvv" id="cvv" placeholder="1xx" required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
                                     <input type="date" id="exp" name="exp" required>
-                                </div>
-                            </div>
-                    </div>
+                                </td>
+                            </tr>
+                            <tr style="border-bottom: none;">
+                                <td class="previous_flex">
+                                    <?php
 
+                                    if ($td->getType() == 1) { //one way
+                                        echo '<a href="./verify_ticket.php" class="previous_btn" onclick="' . $td->setProgressBar(3) . '">< Previous</a>';
+                                    } else if ($td->getType() == 2) { //return
+                                        echo '<a href="./verify_ticket.php" class="previous_btn" onclick="' . $td->setProgressBar(4) . '">< Previous</a>';
+                                    }
+                                    ?>
+                                </td>
 
-                    <div class="payment_form_bottom form_bottom">
-
-                        <div class="payment_form_bottom_inner">
-
-                            <?php
-
-                            if ($td->getType() == 1) { //one way
-                                echo '<a href="./verify_ticket.php" class="previous_btn" onclick="' . $td->setProgressBar(3) . '">< Previous</a>';
-                            } else if ($td->getType() == 2) { //return
-                                echo '<a href="./verify_ticket.php" class="previous_btn" onclick="' . $td->setProgressBar(4) . '">< Previous</a>';
-                            }
-                            ?>
-
-                        </div>
-                        <div class="next_Btn">
-                            <input type="submit" value="CHECKOUT" class="next_btn">
-                        </div>
-
+                                <td>
+                                    <div class="progress_book_now">
+                                        <input type="submit" value="CHECKOUT" class="next_btn">
+                                    </div>
+                                </td>
+                            </tr>
                         </form>
-
-
-
-                    </div>
+                    </table>
                 </div>
             </div>
+        </div>
 
     </section>
     <!-- CREATE PAYMENT OPTION -->

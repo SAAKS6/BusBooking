@@ -13,6 +13,11 @@
     require "./arrays/progress_bar_section/progress_bar_section_data.php";
     ?>
 
+    <!-- GENERATE TICKET SECTION  -->
+    <?php
+    include "./components/ticket/generate_ticket.php";
+    ?>
+
     <!-- TICKET DETAILS CLASS  -->
     <?php
     include_once "./TICKET-OBJECT.php";
@@ -60,53 +65,18 @@
     <!-- NEED TO WRITE THE SQL QUERY TO FETCH DATA OF BUS SCHEDUAL AND PASS IT TO FUNCTION -->
     <section class="verify_ticket_section section_margin">
         <div class="page_width">
-            <div class="schedual_flex">
-                <div class="schedual_titles">
-                    <h3>#</h3>
-                    <h3>Date</h3>
-                    <h3>Depature</h3>
-                    <h3>Trip Time</h3>
-                    <h3>Arrival</h3>
-                    <h3>Price</h3>
-                    <h3>Seats</h3>
-                    <h3></h3>
-                </div>
-
-                <div>
+        <div class="schedual_flex" style="border-bottom: 2px dashed #058B8C;">
+                
+                <table class="table_list" >
                     <?php
                     try {
-                        generateReturnList($td->getDCity());
+                        generateTicket();
                     } catch (\Throwable $th) {
-                        echo "QUERRY EXECUTION / FUNTION CALL ERROR (RETURN.php:78)";
+                        echo "QUERRY EXECUTION / FUNTION CALL ERROR (SCHEDUAL.php:87)";
                     }
                     ?>
-                </div>
-
-                <hr>
-                
+                </table>
             </div>
-
-            <div class="verify_ticket_btn">
-
-                    <div class="previous_Btn">
-                        <?php
-                        if ($td->getType() == 1) { //one way
-                            echo '<a href="./passanger_info.php" class="previous_btn" onclick="' . $td->setProgressBar(3) . '">< Previous</a>';
-                        } else if ($td->getType() == 2) { //return
-                            echo '<a href="./passanger_info.php" class="previous_btn" onclick="' . $td->setProgressBar(4) . '">< Previous</a>';
-                        }
-                        ?>
-                    </div>
-
-                    <form action="./payment.php"  method="post">
-                    <!-- <div class="next_Btn"> -->
-                            <input type="submit" value="Next" name="next" 
-                            class="next_btn" data-sqlQuery-id=<?php $td->getType(); ?>>
-                        <!-- </div> -->
-                    </form>
-                </div>
-
-
         </div>
     </section>
     <!-- FOOTER SECTION -->
