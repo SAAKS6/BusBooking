@@ -132,24 +132,6 @@
     </section>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <!-- FOOTER SECTION -->
     <?php
     include "./footer.php";

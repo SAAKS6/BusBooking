@@ -20,6 +20,7 @@
 
     <!-- TICKET DETAILS CLASS  -->
     <?php
+    include_once "./db.php";
     include_once "./TICKET-OBJECT.php";
     $td = $_SESSION['TD'];
     ?>
@@ -79,6 +80,7 @@
             </div>
         </div>
     </section>
+    
     <!-- FOOTER SECTION -->
     <?php
     include "./footer.php";

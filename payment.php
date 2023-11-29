@@ -39,14 +39,17 @@
         <div class="page_width">
             <div class="progress_flex">
 
-                <?php
+            <?php
                 if ($td->getType() == 1) { //one way
-                    $td->setProgressBar(4);
+                    $td->setProgressBar(3);
                 } else if ($td->getType() == 2) { //return
-                    $td->setProgressBar(5);
+                    $td->setProgressBar(4);
                 }
+                // echo $td->getProgressBar();
+                $form_trip_type = $td->getType();
 
-
+                // $result = $td->getType();
+                // echo gettype($result);
                 if ($td->getType() == 1) { //IF TRIP SELECTED: ONE WAY
                     foreach ($progress_section_data_array_one_way  as $array) {
                         generateProgressSection($array, $td->getProgressBar());
@@ -70,7 +73,7 @@
                 <!-- PAYMENT OPTION SECTION -->
                 <div class="payment_option_grid">
                     <?php
-                    foreach ($progress_section_data_array_one_way  as $array) {
+                    foreach ($payment_option_data_array  as $array) {
                         generatePaymentOptions($array);
                     }
                     ?>
@@ -80,12 +83,12 @@
                         <form action="./generateTicket.php" method="post" class="passanger_form">
                             <tr>
                                 <td>
-                                    <input type="text" name="credit_card_number" id="credit_card_number" placeholder="0xxxxxxxxxxx" required>
+                                    <input type="text" name="credit_card_number" id="credit_card_number" placeholder="Enter Number" required>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="text" name="cvv" id="cvv" placeholder="1xx" required>
+                                    <input type="text" name="cvv" id="cvv" placeholder="Enter CVV" required>
                                 </td>
                             </tr>
                             <tr>

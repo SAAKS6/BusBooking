@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($td->getType() == 1) {
             # code...
             echo("H1 SPF <br><br>");
-            // include('./passanger_info.php');
+            include('./passanger_info.php');
         } else {
             include('./return.php');
         }

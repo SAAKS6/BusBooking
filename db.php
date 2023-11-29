@@ -25,8 +25,8 @@ if (!$conn) {
 // echo "Connected successfully<br>";
 // session_start();
 
-include_once "./TICKET-OBJECT.php";
-$td = $_SESSION['TD'];
+// include_once "./TICKET-OBJECT.php";
+// $td = $_SESSION['TD'];
 
 
 // $sqlQuery = 'INSERT INTO user (Fname, Mname, Lname, Cnic, Gender, Tel, Dob, Email, Status, Dschedual , Rschedual)

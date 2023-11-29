@@ -29,8 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         try {
             insertUser();
-        } catch (\Throwable $th) {
-            echo "Error: PIPF.PHP:33";
+        } catch (mysqli_sql_exception $e) {
+            // Handle the exception
+            echo "Exception: " . $e->getMessage();
         }
 
         include('./verify_ticket.php');
@@ -44,19 +45,20 @@ function insertUser()
 {
     include_once "./db.php";
     $td = $_SESSION['TD'];
-    $td->getFname();
+    
     
     if($td->getType()==1){
         $sqlQuery = 'INSERT INTO user (Fname, Mname, Lname, Cnic, Gender, Tel, Dob, Email, Status, Dschedual)
     VALUES ("' . $td->getFname() . '", "' . $td->getMname() . '", "' . $td->getLname() . '", "' . $td->getIDnumber() . '", "' . $td->getGender() . '", "' . $td->getTel() . '", "' . $td->getDOB() . '", "' . $td->getEmail() . '", 0, "' . $td->getSlist() . '")';
-
     } else if ($td->getType()==2){
         $sqlQuery = 'INSERT INTO user (Fname, Mname, Lname, Cnic, Gender, Tel, Dob, Email, Status, Dschedual , Rschedual)
     VALUES ("' . $td->getFname() . '", "' . $td->getMname() . '", "' . $td->getLname() . '", "' . $td->getIDnumber() . '", "' . $td->getGender() . '", "' . $td->getTel() . '", "' . $td->getDOB() . '", "' . $td->getEmail() . '", 0, "' . $td->getSlist() . '", "' . $td->getRlist() . '")';
-
     }
+
+    
     // Execute the SQL query and check if it was successful.
     if ($conn->query($sqlQuery) === true) {
+        
         // If the query was successful, display a success message.
         echo "New record created successfully";
     } else {

@@ -94,21 +94,21 @@
         </div>
 
         <?php
-        if ($td->getType() == 1) { //one way
-            echo '
-                <form action="./passanger_info.php" class="schedual_list" method="post">
-                    <div class="progress_book_now">
-                        <input type="submit" value="Book Now" name="book_now" onclick="' . $td->setProgressBar(2) . '" data-sqlQuery-id=' . $td->getType() . '>
-                    </div>
-                </form>';
-        } else if ($td->getType() == 2) { //return
-            echo '
-                <form action="./return.php" class="schedual_list" method="post">
-                    <div class="progress_book_now">
-                        <input type="submit" value="Book Now" name="book_now" onclick="' . $td->setProgressBar(2) . '" data-sqlQuery-id=' . $td->getType() . '>
-                        </div>
-                </form>';
-        }
+        // if ($td->getType() == 1) { //one way
+        //     echo '
+        //         <form action="./passanger_info.php" class="schedual_list" method="post">
+        //             <div class="progress_book_now">
+        //                 <input type="submit" value="Book Now" name="book_now" onclick="' . $td->setProgressBar(2) . '" data-sqlQuery-id=' . $td->getType() . '>
+        //             </div>
+        //         </form>';
+        // } else if ($td->getType() == 2) { //return
+        //     echo '
+        //         <form action="./return.php" class="schedual_list" method="post">
+        //             <div class="progress_book_now">
+        //                 <input type="submit" value="Book Now" name="book_now" onclick="' . $td->setProgressBar(2) . '" data-sqlQuery-id=' . $td->getType() . '>
+        //                 </div>
+        //         </form>';
+        // }
         ?>
     </section>
 
