@@ -1,11 +1,11 @@
 <?php
 
-include('./components/ticket/ticket_details.php');
+include('../COMPONENTS/ticket/ticket_details.php');
 session_start();
 $td = $_SESSION['TD'];
 
 
-    include_once "./db.php";
+    include_once "../DATABASE/db.php";
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Define the SQL query to select data from the 'user' table.
@@ -39,7 +39,7 @@ $td = $_SESSION['TD'];
 <script>
 
     alert("Your Ticket has been \n bokked SuccessFully");
-    window.location.href = "http://localhost/webProject/busBooking/index.php";
+    window.location.href = "http://localhost/webProject/busBooking/home/home.php";
 
 </script>
 

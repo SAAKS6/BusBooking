@@ -1,5 +1,5 @@
 <?php
-include_once('./components/ticket/ticket_details.php');
+include_once('../COMPONENTS/ticket/ticket_details.php');
 session_start();
 $td = $_SESSION['TD'];
 
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         // include('./verify_ticket.php');
-        header("Location: ./verify_ticket.php");
+        header("Location: ../ticket/verify_ticket.php");
             exit;
     } else {
         // If selectedTripType is not set in the POST data, handle the error
@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 function insertUser($td)
 {
-    include_once "./db.php";
+    include_once "../DATABASE//db.php";
     
     if($td->getType()==1){
         $sqlQuery = 'INSERT INTO user (Fname, Mname, Lname, Cnic, Gender, Tel, Dob, Email, Status, Dschedual)

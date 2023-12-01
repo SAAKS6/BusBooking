@@ -3,7 +3,7 @@
 function generateTicket()
 {
     global $conn;
-    include "./db.php";
+    include "../DATABASE/db.php";
     $td = $_SESSION['TD'];
 
     // Define the SQL query to select data from the 'user' table.
@@ -27,7 +27,7 @@ function generateTicket()
             // Loop through each row of the result set and display the data.
             while ($row = $result->fetch_assoc()) {
                 $print = '
-            <form action="./payment.php" method="post">
+            <form action="../payment/payment.php" method="post">
                     <tr>
                     <td><h3>Ticket: ' . $i++ . '</h3></td>
                     </tr>
@@ -74,7 +74,7 @@ function generateTicket()
             // Loop through each row of the result set and display the data.
             while ($row = $result->fetch_assoc()) {
                 $print = '
-            <form action="./payment.php" method="post">
+            <form action="../payment/payment.php" method="post">
                     <tr>
                     <td><h3>Ticket: ' . $i++ . '</h3></td>
                     </tr>
@@ -144,7 +144,7 @@ function generateTicket()
             $i = 1;
             while ($row = $result->fetch_assoc()) {
                 $print = '
-                    <form action="./payment.php" method="post">
+                    <form action="../payment/payment.php" method="post">
                     <tr>
                     <td><h3>Ticket: ' . $i++ . '</h3></td>
                     </tr>

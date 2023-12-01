@@ -5,23 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RIHAL - PAYMENT</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../home//style.css">
 
     <!-- PROGRESS BAR SECTION  -->
     <?php
-    include "./components/schedual/progress_bar_section/progress_bar_section_card.php";
-    require "./arrays/progress_bar_section/progress_bar_section_data.php";
+    include "../COMPONENTS/schedual/progress_bar_section/progress_bar_section_card.php";
+    require "../ARRAYS/progress_bar_section/progress_bar_section_data.php";
     ?>
 
     <!-- PAYMENT OPTION SECTION  -->
     <?php
-    include "./components/payment/payment_option_card.php";
-    require "./arrays/payment_section/payment_option_data.php";
+    include "../COMPONENTS/payment/payment_option_card.php";
+    require "../ARRAYS/payment_section/payment_option_data.php";
     ?>
 
     <!-- TICKET DETAILS CLASS  -->
     <?php
-    include('./components/ticket/ticket_details.php');
+    include('../COMPONENTS/ticket/ticket_details.php');
     session_start();
     $td = $_SESSION['TD'];
     ?>
@@ -32,7 +32,7 @@
 <body>
     <!-- HEADER SECTION -->
     <?php
-    include "./header.php";
+    include "../header/header.php";
     ?>
 
     <!-- PROGRESS SECTION -->
@@ -81,7 +81,7 @@
                 </div>
                 <div class="schedual_flex Passanger_info_flex">
                     <table class="table_list" style="padding-bottom: 0px;">
-                        <form action="./generateTicket.php" method="post" class="passanger_form">
+                        <form action="../ticket//generateTicket.php" method="post" class="passanger_form">
                             <tr>
                                 <td>
                                     <input type="text" name="credit_card_number" id="credit_card_number" placeholder="Enter Number" required>
@@ -102,9 +102,9 @@
                                     <?php
 
                                     if ($td->getType() == 1) { //one way
-                                        echo '<a href="./verify_ticket.php" class="previous_btn" onclick="' . $td->setProgressBar(3) . '">< Previous</a>';
+                                        echo '<a href="../ticket//verify_ticket.php" class="previous_btn" onclick="' . $td->setProgressBar(3) . '">< Previous</a>';
                                     } else if ($td->getType() == 2) { //return
-                                        echo '<a href="./verify_ticket.php" class="previous_btn" onclick="' . $td->setProgressBar(4) . '">< Previous</a>';
+                                        echo '<a href="../ticket//verify_ticket.php" class="previous_btn" onclick="' . $td->setProgressBar(4) . '">< Previous</a>';
                                     }
                                     ?>
                                 </td>
@@ -122,10 +122,10 @@
         </div>
 
     </section>
-    <!-- CREATE PAYMENT OPTION -->
+
     <!-- FOOTER SECTION -->
     <?php
-    include "./footer.php";
+    include "../footer/footer.php";
     ?>
 </body>
 

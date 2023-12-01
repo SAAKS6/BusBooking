@@ -3,7 +3,7 @@
 function generateDepatureList()
 {
     // include_once ('./components/ticket/ticket_details.php');
-    include "./db.php";
+    include "../DATABASE/db.php";
     global $conn;
     $td = $_SESSION['TD'];
 
@@ -21,7 +21,7 @@ WHERE FromCity = '" . $td->getDCity(0) . "' AND Date = '" . $td->getDDate(0) . "
         while ($row = $result->fetch_assoc()) {
 
             $print = '
-                <form action="./schedual_process_form.php" method="post">
+                <form action="../schedual/schedual_process_form.php" method="post">
                 <input type="hidden" name="selectedSchedual" value="' . $row['Id'] . '">
                     <tr>
                         <td>' . $row['Id'] . '</td>
@@ -55,7 +55,7 @@ function generateReturnList()
 
     // include_once ('./components/ticket/ticket_details.php');
     global $conn;
-    include "./db.php";
+    include "../DATABASE/db.php";
     $td = $_SESSION['TD'];
 
     $sqlQuery = "SELECT * FROM schedual WHERE

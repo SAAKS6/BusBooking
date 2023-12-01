@@ -5,17 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RIHAL - PASSANGER INFO</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../home/style.css">
 
     <!-- PROGRESS BAR SECTION  -->
     <?php
-    include "./components/schedual/progress_bar_section/progress_bar_section_card.php";
-    require "./arrays/progress_bar_section/progress_bar_section_data.php";
+    include "../COMPONENTS/schedual/progress_bar_section/progress_bar_section_card.php";
+    require "../ARRAYS/progress_bar_section/progress_bar_section_data.php";
     ?>
 
     <!-- TICKET DETAILS CLASS  -->
     <?php
-    include_once('./components/ticket/ticket_details.php');
+    include_once('../COMPONENTS/ticket/ticket_details.php');
     // if($_SESSION['TRIPTYPE']==1){
         session_start();
     // }
@@ -28,7 +28,7 @@
 <body>
     <!-- HEADER SECTION -->
     <?php
-    include "./header.php";
+    include "../header/header.php";
     ?>
 
     <!-- PROGRESS SECTION -->
@@ -68,11 +68,11 @@
         <div class="page_width">
             <div class="Passanger_info_flex ">
                 <div class="top_form_graphics">
-                    <img src="./images//form//form_top_graphics.svg" alt="Passanger Information">
+                    <img src="../images//form//form_top_graphics.svg" alt="Passanger Information">
                     <h3>Passanger Information</h3>
                 </div>
                 <table class="table_list">
-                    <form action="./passanger_info_process_form.php" method="post" class="passanger_form">
+                    <form action="../passanger_info//passanger_info_process_form.php" method="post" class="passanger_form">
                         <tr>
                             <td>
                                 <input type="text" name="fname" id="fname" placeholder="enter first name" required>
@@ -116,9 +116,9 @@
                                 <?php
 
                                 if ($td->getType() == 1) { //one way
-                                    echo '<a href="./schedual.php" class="previous_btn" onclick="' . $td->setProgressBar(1) . '">< Previous</a>';
+                                    echo '<a href="../schedual/schedual.php" class="previous_btn" onclick="' . $td->setProgressBar(1) . '">< Previous</a>';
                                 } else if ($td->getType() == 2) { //return
-                                    echo '<a href="./return.php" class="previous_btn" onclick="' . $td->setProgressBar(2) . '">< Previous</a>';
+                                    echo '<a href="../schedual/return.php" class="previous_btn" onclick="' . $td->setProgressBar(2) . '">< Previous</a>';
                                 }
                                 ?>
                             </td>
@@ -138,7 +138,7 @@
 
     <!-- FOOTER SECTION -->
     <?php
-    include "./footer.php";
+    include "../footer/footer.php";
     ?>
 </body>
 

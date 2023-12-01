@@ -5,23 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RIHAL - RETURN</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../home/style.css">
 
     <!-- PROGRESS BAR SECTION  -->
     <?php
-    include "./components/schedual/progress_bar_section/progress_bar_section_card.php";
-    require "./arrays/progress_bar_section/progress_bar_section_data.php";
+    include "../COMPONENTS/schedual/progress_bar_section/progress_bar_section_card.php";
+    require "../ARRAYS/progress_bar_section/progress_bar_section_data.php";
     ?>
 
     <!-- RETURN LIST SECTION  -->
     <?php
-    include "./components/schedual/schedual_section/schedual_section_list.php";
+    include "../COMPONENTS/schedual/schedual_section/schedual_section_list.php";
     ?>
 
 
     <!-- TICKET DETAILS CLASS  -->
     <?php
-        include_once('./components/ticket/ticket_details.php');
+        include_once('../COMPONENTS/ticket/ticket_details.php');
         session_start();
         $td = $_SESSION['TD'];
     ?>
@@ -32,7 +32,7 @@
 <body>
     <!-- HEADER SECTION -->
     <?php
-    include "./header.php";
+    include "../header/header.php";
     ?>
 
     <!-- PROGRESS SECTION -->
@@ -90,7 +90,7 @@
                     ?>
                 </table>
 
-                <a href="./schedual.php" class="previous_btn" onclick="<?php $td->setProgressBar(1) ?>">
+                <a href="../schedual/schedual.php" class="previous_btn" onclick="<?php $td->setProgressBar(1) ?>">
                     < Previous</a>
             </div>
         </div>
@@ -98,7 +98,7 @@
 
     <!-- FOOTER SECTION -->
     <?php
-    include "./footer.php";
+    include "../footer/footer.php";
     ?>
 </body>
 
