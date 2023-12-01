@@ -15,7 +15,10 @@
 
     <!-- TICKET DETAILS CLASS  -->
     <?php
-    include_once "./TICKET-OBJECT.php";
+    include_once('./components/ticket/ticket_details.php');
+    // if($_SESSION['TRIPTYPE']==1){
+        session_start();
+    // }
     $td = $_SESSION['TD'];
     ?>
 
@@ -34,6 +37,7 @@
             <div class="progress_flex">
 
                 <?php
+                    
                 if ($td->getType() == 1) { //one way
                     $td->setProgressBar(2);
                 } else if ($td->getType() == 2) { //return

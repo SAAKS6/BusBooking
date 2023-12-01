@@ -1,14 +1,16 @@
 <?php
-    include_once "./TICKET-OBJECT.php";
+require_once('./components/ticket/ticket_details.php');
+session_start();
+$td = new TicketDetails();
+$_SESSION['TD'] = $td;
 
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Check if the selectedTripType is set in the POST data
     if (isset($_POST['selectedTripType'])) {
         
-
+        
         if ($_POST['selectedTripType'] == 1) {
-            echo "Hi1<br><br>";
             // CLEAR ALL THE ARRAYS
             $td->clearArrays();
 
@@ -18,13 +20,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // TRIP TYPE
             $td->setType($_POST['selectedTripType']);
-            echo $td->getType();
             // DATES
             $td->setDDate($_POST['departure_Date']);
             $td->setRDate("");
         }
         else if ($_POST['selectedTripType'] == 2) {
-            echo "Hi2<br><br>";
             // CLEAR ALL THE ARRAYS
             $td->clearArrays();
 
@@ -40,12 +40,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $td->setRDate($_POST['return_date']);
         }
         
-        
         $_SESSION['TD'] = $td;
-
-        // $td->showData();
-
-        include('./schedual.php');
+        $_SESSION['TRIPTYPE'] = $_POST['selectedTripType'];
+        // include('./schedual.php');
+        header("Location: ./schedual.php");
+        exit();
     } else {
         // If selectedTripType is not set in the POST data, handle the error
         echo "Error: index_process_form.php.";

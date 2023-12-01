@@ -20,8 +20,9 @@
 
     <!-- TICKET DETAILS CLASS  -->
     <?php
-    include_once "./db.php";
-    include_once "./TICKET-OBJECT.php";
+    // include_once "./db.php";
+    include_once('./components/ticket/ticket_details.php');
+    session_start();
     $td = $_SESSION['TD'];
     ?>
 

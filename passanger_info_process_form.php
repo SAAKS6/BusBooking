@@ -1,5 +1,7 @@
 <?php
-include_once "./TICKET-OBJECT.php";
+include_once('./components/ticket/ticket_details.php');
+session_start();
+$td = $_SESSION['TD'];
 
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -24,28 +26,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // EMAIL
         $td->setEmail($_POST['email']);
-
         $_SESSION['TD'] = $td;
-
         try {
-            insertUser();
+            insertUser($td);
         } catch (mysqli_sql_exception $e) {
             // Handle the exception
             echo "Exception: " . $e->getMessage();
         }
 
-        include('./verify_ticket.php');
+        // include('./verify_ticket.php');
+        header("Location: ./verify_ticket.php");
+            exit;
     } else {
         // If selectedTripType is not set in the POST data, handle the error
         echo "Error: PIPF.PHP:40";
     }
 }
 
-function insertUser()
+function insertUser($td)
 {
     include_once "./db.php";
-    $td = $_SESSION['TD'];
-    
     
     if($td->getType()==1){
         $sqlQuery = 'INSERT INTO user (Fname, Mname, Lname, Cnic, Gender, Tel, Dob, Email, Status, Dschedual)
@@ -60,7 +60,7 @@ function insertUser()
     if ($conn->query($sqlQuery) === true) {
         
         // If the query was successful, display a success message.
-        echo "New record created successfully";
+        // echo "New record created successfully";
     } else {
         // If there was an error with the query, display an error message along with the details of the error.
         echo "Error: PIPF.PHP:52";

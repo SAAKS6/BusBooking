@@ -1,10 +1,11 @@
 <?php
 
-include_once "./TICKET-OBJECT.php";
+include('./components/ticket/ticket_details.php');
+session_start();
+$td = $_SESSION['TD'];
 
 
     include_once "./db.php";
-    $td = $_SESSION['TD'];
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Define the SQL query to select data from the 'user' table.
@@ -32,15 +33,19 @@ include_once "./TICKET-OBJECT.php";
 
         // Close the database connection.
         $conn->close();
-
+    }
 ?>
 
 <script>
+
     alert("Your Ticket has been \n bokked SuccessFully");
+    window.location.href = "http://localhost/webProject/busBooking/index.php";
+
 </script>
 
 <?php
-        include('./index.php');
-    }
+        
+    // header("Location: http://localhost/webProject/busBooking/login/login.php");
+    // }
 ?>
 

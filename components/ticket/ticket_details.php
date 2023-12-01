@@ -51,6 +51,8 @@ class TicketDetails
         echo "Return Dates: " . implode("<br>", $this->RDate) . "<br>";
         echo "Prices: " . implode("<br>", $this->Price) . "<br>";
         echo "Total Price: " . $this->Totalprice . "<br>";
+        echo "SLIST " . $this->Slist . "<br>";
+        echo "RLIST: " . $this->Rlist . "<br>";
 
         echo "\nOther Information:\n";
         echo "Progress Bar: " . $this->progress_bar . "<br>";
@@ -192,9 +194,9 @@ class TicketDetails
         return $this->Slist;
     }
 
-    public function setSlist($Slist)
+    public function setSlist($slist)
     {
-        $this->Slist = $Slist;
+        $this->Slist = $slist;
     }
 
     // Getter and Setter for Rlist

@@ -1,3 +1,6 @@
+<?php
+    session_start();
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,17 +39,14 @@
   ?>
 
   <!-- TICKET DETAILS CLASS  -->
-  <?php
-  include_once "./TICKET-OBJECT.php";
-  $td = $_SESSION['TD'];
-  ?>
+ 
 
 </head>
 
 <body>
   <!-- HEADER SECTION -->
   <?php
-  include "./header.php";
+  include_once "./header.php";
   ?>
 
   <!-- BANNER SECTION -->

@@ -1,12 +1,10 @@
 <?php
 
-include_once "./TICKET-OBJECT.php";
-$from =$td->getDCity(0);
-$to =$td->getACity(0);
-
 function generateDepatureList()
 {
-    include_once "./db.php";
+    // include_once ('./components/ticket/ticket_details.php');
+    include "./db.php";
+    global $conn;
     $td = $_SESSION['TD'];
 
     // Define the SQL query to select data from the 'user' table.
@@ -45,7 +43,7 @@ WHERE FromCity = '" . $td->getDCity(0) . "' AND Date = '" . $td->getDDate(0) . "
         }
     } else {
         // If there are no results, display a message indicating that.
-        echo "0 results - SSL.php:48";
+        echo "0 results - SSL.php:48".$conn->error.$td->getDCity(0). $td->getDDate(0) . $td->getACity(0);
     }
 
     // Close the database connection.
@@ -55,12 +53,20 @@ WHERE FromCity = '" . $td->getDCity(0) . "' AND Date = '" . $td->getDDate(0) . "
 function generateReturnList()
 {
 
-    include_once "./db.php";
+    // include_once ('./components/ticket/ticket_details.php');
+    global $conn;
+    include "./db.php";
+    $td = $_SESSION['TD'];
 
-    // Define the SQL query to select data from the 'user' table.
-    /*$sqlQuery = "SELECT * FROM schedual
-    WHERE FromCity = '" . $to . "' AND ToCity = '" . $from . "'";*///THIS IS TECHNICALLY CORRECT
-    $sqlQuery = 'SELECT * FROM schedual WHERE FromCity = "Islamabad"';
+    $sqlQuery = "SELECT * FROM schedual WHERE
+    Id <> ".$td->getSlist()."
+    AND (
+        (FromCity = (SELECT ToCity FROM schedual WHERE Id = ".$td->getSlist()."))
+        AND
+        (ToCity = (SELECT FromCity FROM schedual WHERE Id = ".$td->getSlist()."))
+    )";
+
+    
 
     // Execute the SQL query and store the result in the variable $result.
     $result = $conn->query($sqlQuery);

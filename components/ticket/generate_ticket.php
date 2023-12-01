@@ -1,8 +1,5 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 
-include_once "./TICKET-OBJECT.php";
 function generateTicket()
 {
     global $conn;
@@ -132,7 +129,6 @@ function generateTicket()
             echo "0 results - GT.php:119";
         }
     } else {//FOR SELECT TYPE = ONE WAY
-
         $sqlQuery = 'SELECT u.Fname, u.Mname, u.Lname, u.Cnic, u.Tel, u.Email, u.Dob,
         s.Date, s.FromCity, s.ToCity, s.Departure, s.TripTime, s.Arrival, s.Price, s.Seats
         FROM user u

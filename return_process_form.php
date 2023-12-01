@@ -1,6 +1,8 @@
 <?php
-include "./TICKET-OBJECT.php";
+require_once('./components/ticket/ticket_details.php');
+session_start();
 $td = $_SESSION['TD'];
+
 
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -9,12 +11,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $td->setRlist($_POST['selectedRSchedual']);
 
-        echo("H3 RPF <br><br>");
-        include('./passanger_info.php');
-        
+        // include('./passanger_info.php');
+        header("Location: ./passanger_info.php");
+        exit;
     } else {
         // If selectedTripType is not set in the POST data, handle the error
         echo "Error: RPF:22";
     }
 }
-?>

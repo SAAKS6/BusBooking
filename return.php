@@ -21,8 +21,9 @@
 
     <!-- TICKET DETAILS CLASS  -->
     <?php
-    include_once "./TICKET-OBJECT.php";
-    $td = $_SESSION['TD'];
+        include_once('./components/ticket/ticket_details.php');
+        session_start();
+        $td = $_SESSION['TD'];
     ?>
 
 

@@ -13,15 +13,16 @@
     require "./arrays/progress_bar_section/progress_bar_section_data.php";
     ?>
 
-    <!-- RETURN LIST SECTION  -->
+    <!-- SCHEDUAL LIST SECTION  -->
     <?php
     include "./components/schedual/schedual_section/schedual_section_list.php";
     ?>
 
     <!-- TICKET DETAILS CLASS  -->
     <?php
-    include_once "./TICKET-OBJECT.php";
-    $td = $_SESSION['TD'];
+        require_once('./components/ticket/ticket_details.php');
+        session_start();
+        $td = $_SESSION['TD'];
     ?>
 
 
@@ -40,6 +41,8 @@
 
                 <?php
                 $td->setProgressBar(1);
+                $_SESSION['TD'] = $td;
+
                 // echo $td->getProgressBar();
                 $form_trip_type = $td->getType();
 
@@ -88,28 +91,10 @@
                     ?>
                 </table>
 
-                <a href="./index.php" class="previous_btn" onclick="<?php $td->setProgressBar(0) ?>">
-                    < Previous</a>
+                <a href="./index.php" class="previous_btn" 
+                    onclick="<?php $td->setProgressBar(0) ?>">< Previous</a>
             </div>
         </div>
-
-        <?php
-        // if ($td->getType() == 1) { //one way
-        //     echo '
-        //         <form action="./passanger_info.php" class="schedual_list" method="post">
-        //             <div class="progress_book_now">
-        //                 <input type="submit" value="Book Now" name="book_now" onclick="' . $td->setProgressBar(2) . '" data-sqlQuery-id=' . $td->getType() . '>
-        //             </div>
-        //         </form>';
-        // } else if ($td->getType() == 2) { //return
-        //     echo '
-        //         <form action="./return.php" class="schedual_list" method="post">
-        //             <div class="progress_book_now">
-        //                 <input type="submit" value="Book Now" name="book_now" onclick="' . $td->setProgressBar(2) . '" data-sqlQuery-id=' . $td->getType() . '>
-        //                 </div>
-        //         </form>';
-        // }
-        ?>
     </section>
 
     <!-- FOOTER SECTION -->

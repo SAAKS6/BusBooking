@@ -37,6 +37,16 @@ header {
     align-items: center;
 }
 
+/* .nav_desktop .logo{
+    width: 160px;
+    height: 42px;
+} */
+
+.nav_desktop .logo img{
+    width: 100%;
+    height: 100%;
+}
+
 .nav_desktop nav ul {
     list-style: none;
     display: flex;
@@ -50,6 +60,11 @@ header {
     color: black;
     font-weight: 400;
     transition: all 0.5ms;
+    padding-bottom: 20px;
+}
+
+.nav_desktop nav ul li:last-child a {
+    padding-bottom: 1px;
 }
 
 .nav_desktop nav ul a:hover {
@@ -57,7 +72,7 @@ header {
     font-weight: 700;
 }
 
-.nav_desktop nav ul li:last-child a {
+.nav_desktop nav ul .outer_user {
     background-color: #058b8c;
     border-radius: 15px;
     padding: 10px 20px;
@@ -65,6 +80,111 @@ header {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+/*  */
+.outer_service{
+    position: relative;
+}
+
+.outer_service .inner_service{
+    position: absolute;
+    width: 175px;
+    padding: 10px;
+    background-color: #058B8C;
+    z-index: 1;
+    display: none;
+    top: 37px;
+    left: 0px;
+    border-radius: 5px;
+}
+
+.outer_service .inner_service .service_list{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;    
+}
+
+.outer_service .inner_service .service_list li{
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid #FFFFFF;
+}
+
+.outer_service .inner_service .service_list li:last-child{
+    border-bottom: none;
+}
+
+.outer_service .inner_service .service_list  a{
+    padding-left: 10px;
+    color: #FFF;
+}
+
+.outer_service .inner_service .service_list li:hover{
+    padding: 10px;
+    background-color: #FFF;
+}
+
+.outer_service .inner_service .service_list a:hover{
+    color: #058B8C;
+}
+
+.outer_service:hover .inner_service{
+    display: block;
+}
+/*  */
+.outer_user{
+    position: relative;
+}
+
+.outer_user .inner_user{
+    position: absolute;
+    padding: 10px;
+    width: 175px;
+    background-color: #F9F9F9;
+    z-index: 1;
+    display: none;
+    top: 42px;
+    left: 0px;
+    border-radius: 5px;
+}
+
+.outer_user .inner_user .user_list{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px; 
+}
+
+.outer_user .inner_user .user_list li{
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid #058B8C;
+}
+
+.outer_user .inner_user .user_list li:last-child{
+    border-bottom: none;
+}
+
+
+.outer_user .inner_user .user_list a{
+    padding: 10px;
+    color: #058B8C;
+}
+
+.outer_user .inner_user .user_list li:hover{
+    padding: 10px;
+    background-color: #058B8C;
+    font-weight: 700;   
+}
+
+.outer_user .inner_user .user_list a:hover{
+    color: #FFF;
+    font-weight: 700;
+}
+
+.outer_user:hover .inner_user{
+    display: block;
 }
 
 /* -------------------------------------------------------------------------------------- */
