@@ -39,7 +39,7 @@ $td = $_SESSION['TD'];
 <script>
 
     alert("Your Ticket has been \n bokked SuccessFully");
-    window.location.href = "http://localhost/webProject/busBooking/home/home.php";
+    window.location.href = "http://localhost/webProject/busBooking/index.php";
 
 </script>
 

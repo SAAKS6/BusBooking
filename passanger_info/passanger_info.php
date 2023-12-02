@@ -118,7 +118,7 @@
                                 if ($td->getType() == 1) { //one way
                                     echo '<a href="../schedual/schedual.php" class="previous_btn" onclick="' . $td->setProgressBar(1) . '">< Previous</a>';
                                 } else if ($td->getType() == 2) { //return
-                                    echo '<a href="../schedual/return.php" class="previous_btn" onclick="' . $td->setProgressBar(2) . '">< Previous</a>';
+                                    echo '<a href="../return/return.php" class="previous_btn" onclick="' . $td->setProgressBar(2) . '">< Previous</a>';
                                 }
                                 ?>
                             </td>

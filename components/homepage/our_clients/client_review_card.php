@@ -18,7 +18,7 @@ function generateOurClient($array) {
     // Loop to generate star images
     for ($i = 1; $i <= rand(1, 5); $i++) {
         echo '<div>';
-        echo '<img src="..//..//..//..//images/home//our_clients//our-clients_ratings_star.svg" alt="ratings ' . $i . ' of 5" />';
+        echo '<img src=".//..//..//images/home//our_clients//our-clients_ratings_star.svg" alt="ratings ' . $i . ' of 5" />';
         echo '</div>';
     }
 

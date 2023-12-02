@@ -12,7 +12,7 @@ $sql = "SELECT * FROM admin WHERE Name = '". $username ."' AND Pass = '". $pass 
 if ($conn->query($sql) == TRUE) {
     $_SESSION["uname"] = $username;
     $conn->close();
-    header("Location: http://localhost/webProject/busBooking/home/home.php");
+    header("Location: http://localhost/webProject/busBooking/index.php");
     exit();
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;

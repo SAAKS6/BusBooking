@@ -21,6 +21,10 @@
         <input type="password" id="password" name="password" required onkeyup="checkPasswordStrength()">
         <p id="passwordResult"></p>
 
+        <label for="SKey">Security Key:</label>
+        <input type="password" id="SKey" name="SKey" required onblur="checkSkeyMatch()">
+        <p id="SKeyResult"></p>
+
         <input type="submit" value="Signup">
     </form>
     </div>
@@ -37,6 +41,19 @@
                 data: { username: username },
                 success: function (response) {
                     $('#usernameResult').html(response);
+                }
+            });
+        }
+
+        function checkSkeyMatch() {
+            var SKey = $('#SKey').val();
+
+            $.ajax({
+                type: 'POST',
+                url: './check_Skey_match.php', // Replace with your server endpoint
+                data: { SKey: SKey },
+                success: function (response) {
+                    $('#SKeyResult').html(response);
                 }
             });
         }

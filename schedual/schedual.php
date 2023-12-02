@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../home/style.css">
 
     <!-- PROGRESS BAR SECTION  -->
-    <?php
+    <?php        
     include "../COMPONENTS/schedual/progress_bar_section/progress_bar_section_card.php";
     require "../ARRAYS/progress_bar_section/progress_bar_section_data.php";
     ?>
@@ -91,7 +91,7 @@
                     ?>
                 </table>
 
-                <a href="../index/index.php" class="previous_btn" 
+                <a href="../index.php" class="previous_btn" 
                     onclick="<?php $td->setProgressBar(0) ?>">< Previous</a>
             </div>
         </div>
