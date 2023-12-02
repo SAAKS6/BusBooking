@@ -72,7 +72,7 @@
                     <h3>Passanger Information</h3>
                 </div>
                 <table class="table_list">
-                    <form action="../passanger_info//passanger_info_process_form.php" method="post" class="passanger_form">
+                    <form action="../passanger_info/passanger_info_process_form.php" method="post" class="passanger_form">
                         <tr>
                             <td>
                                 <input type="text" name="fname" id="fname" placeholder="enter first name" required>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once('../db.php');
+include_once('../DATABASE/db.php');
 
 // $username = $_POST['username'];
 $username = $_POST['username'];
@@ -12,7 +12,7 @@ $sql = "SELECT * FROM admin WHERE Name = '". $username ."' AND Pass = '". $pass 
 if ($conn->query($sql) == TRUE) {
     $_SESSION["uname"] = $username;
     $conn->close();
-    header("Location: http://localhost/webProject/busBooking/index.php");
+    header("Location: http://localhost/webProject/busBooking/home/home.php");
     exit();
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;

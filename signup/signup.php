@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Form</title>
-    <link rel="stylesheet" href="signup.css">
+    <link rel="stylesheet" href="./signup.css">
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div class="page_width">
     <form action="./signup_process_form.php" method="post" class="login_form">
-        <h2>Login</h2>
+        <h2>Signup</h2>
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required onblur="checkUsernameAvailability()">
         <p id="usernameResult"></p>

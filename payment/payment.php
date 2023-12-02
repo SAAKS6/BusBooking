@@ -102,9 +102,9 @@
                                     <?php
 
                                     if ($td->getType() == 1) { //one way
-                                        echo '<a href="../ticket//verify_ticket.php" class="previous_btn" onclick="' . $td->setProgressBar(3) . '">< Previous</a>';
+                                        echo '<a href="../ticket/verify_ticket.php" class="previous_btn" onclick="' . $td->setProgressBar(3) . '">< Previous</a>';
                                     } else if ($td->getType() == 2) { //return
-                                        echo '<a href="../ticket//verify_ticket.php" class="previous_btn" onclick="' . $td->setProgressBar(4) . '">< Previous</a>';
+                                        echo '<a href="../ticket/verify_ticket.php" class="previous_btn" onclick="' . $td->setProgressBar(4) . '">< Previous</a>';
                                     }
                                     ?>
                                 </td>

@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $td->setRlist($_POST['selectedRSchedual']);
 
         // include('./passanger_info.php');
-        header("Location: ../passanger_info//passanger_info.php");
+        header("Location: ../passanger_info/passanger_info.php");
         exit;
     } else {
         // If selectedTripType is not set in the POST data, handle the error

@@ -1,5 +1,5 @@
 <?php
-require_once('./components/ticket/ticket_details.php');
+require_once('../COMPONENTS/ticket/ticket_details.php');
 session_start();
 $td = $_SESSION['TD'];
 // Check if the form is submitted
@@ -10,10 +10,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $td->setSlist($_POST['selectedSchedual']);
 
         if ($td->getType() == 1) {
-            header("Location: ./passanger_info.php");
+            header("Location: ../passanger_info/passanger_info.php");
             exit;
         } else {
-            header("Location: ./return.php");
+            header("Location: ../return/return.php");
             exit;
         }
     } else {

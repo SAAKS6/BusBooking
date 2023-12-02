@@ -75,12 +75,35 @@ header {
 .nav_desktop nav ul .outer_user {
     background-color: #058b8c;
     border-radius: 15px;
-    padding: 10px 20px;
+    padding: 10px 15px;
     color: white;
+    
+}
+
+.nav_desktop nav ul .outer_user a img{
+    width: 23px;
+    height: 22px;
+}
+
+.nav_desktop nav ul .outer_user a{
     display: flex;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
     gap: 10px;
 }
+
+.nav_desktop nav ul .outer_user:hover {
+    color: #FFF;
+}
+
+.nav_desktop nav ul .outer_user span p{
+    display: inline-block;
+    color: #FFF;
+    font-size: 20px;
+}
+
+
 /*  */
 .outer_service{
     position: relative;

@@ -1,5 +1,5 @@
 <?php
-include_once('../db.php');
+include_once('../DATABASE/db.php');
 // Get username from AJAX request
 // $username = $_POST['username'];
 $username = $_POST['username'];

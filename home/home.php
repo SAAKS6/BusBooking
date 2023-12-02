@@ -74,7 +74,7 @@ session_start();
 
           <!-- STARTING FOR BOOKING MENU -->
           <div class="booking_menu_main">
-            <form action="./index_process_form.php" method="post" class="booking_form">
+            <form action="./home_process_form.php" method="post" class="booking_form">
 
               <div class="form_location"><!-- DIV START 1 -->
                 <!-- FROM DROPE DOWN -->
@@ -252,7 +252,7 @@ session_start();
     // var $fromcity;
   </script>
 
-  <script src="hscroll.js"></script>
+  <script src="home.js"></script>
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {

@@ -109,7 +109,7 @@ function generateTicket()
                     <tr style="border-bottom: none;">
                     <td class="previous_flex">
                         
-                            ' . '<a href="./passanger_info.php" class="previous_btn" onclick=' . $td->setProgressBar(4) . '>< Previous</a>' . '
+                            ' . '<a href="../passanger_info/passanger_info.php" class="previous_btn" onclick=' . $td->setProgressBar(4) . '>< Previous</a>' . '
                         ' . '
                     </td>
                     
@@ -120,7 +120,7 @@ function generateTicket()
                     </td>
                 </tr>
             </form>';
-                // echo "<a href="./passanger_info.php" class="previous_btn" onclick="' . $td->setProgressBar(3) . '">< Previous</a>";
+                // echo "<a href="../passanger_info/passanger_info.php" class="previous_btn" onclick="' . $td->setProgressBar(3) . '">< Previous</a>";
 
                 echo $print;
             }
@@ -180,7 +180,7 @@ function generateTicket()
                             <tr style="border-bottom: none;">
                             <td class="previous_flex">
                                 
-                                    ' . '<a href="./passanger_info.php" class="previous_btn" onclick=' . $td->setProgressBar(3) . '>< Previous</a>' . '
+                                    ' . '<a href="../passanger_info/passanger_info.php" class="previous_btn" onclick=' . $td->setProgressBar(3) . '>< Previous</a>' . '
                                 ' . '
                             </td>
                             

@@ -1,5 +1,5 @@
 <?php
-require_once('./components/ticket/ticket_details.php');
+require_once('../COMPONENTS/ticket/ticket_details.php');
 session_start();
 $td = new TicketDetails();
 $_SESSION['TD'] = $td;
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['TD'] = $td;
         $_SESSION['TRIPTYPE'] = $_POST['selectedTripType'];
         // include('./schedual.php');
-        header("Location: ./schedual.php");
+        header("Location: ../schedual/schedual.php");
         exit();
     } else {
         // If selectedTripType is not set in the POST data, handle the error
