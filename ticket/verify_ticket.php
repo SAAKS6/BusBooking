@@ -73,8 +73,10 @@
                     <?php
                     try {
                         generateTicket();
-                    } catch (\Throwable $th) {
-                        echo "QUERRY EXECUTION / FUNTION CALL ERROR (SCHEDUAL.php:87)";
+                    } catch (mysqli_sql_exception $e) {
+                        echo "QUERRY EXECUTION / FUNTION CALL ERROR (SCHEDUAL.php:87)<br>";
+                        echo $e->getMessage() . '<br>';
+                        echo gettype($td->getTimestamp()).': '.$td->getTimestamp();
                     }
                     ?>
                 </table>

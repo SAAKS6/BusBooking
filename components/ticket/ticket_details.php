@@ -12,6 +12,7 @@ class TicketDetails
     private $Email = 0;
     private $Slist = 0;
     private $Rlist = 0;
+    private $Timestamp = 0;
 
     private $Type = 0;
     private $DCity = []; // make it array
@@ -20,7 +21,6 @@ class TicketDetails
     private $RDate = []; // make it array
     private $Price = []; // make it array
     private $Totalprice = 0;
-
     private $progress_bar = 0;
 
     public function clearArrays() {
@@ -56,6 +56,17 @@ class TicketDetails
 
         echo "\nOther Information:\n";
         echo "Progress Bar: " . $this->progress_bar . "<br>";
+    }
+    
+    public function getTimestamp()
+    {
+        return $this->Timestamp;
+    }
+
+    public function setTimestamp($timestamp)
+    {
+        $this->Timestamp = $timestamp;
+        // $this->Timestamp = time();
     }
     
     public function getProgressBar()
@@ -283,6 +294,11 @@ class TicketDetails
             return $this->Price[$index];
         } else {
             return null;  // or handle the case when the index is out of bounds
+        }
+    }
+    public function getPricee() {
+        foreach ($this->Price as $key => $value) {
+            echo $value.", ";
         }
     }
 
