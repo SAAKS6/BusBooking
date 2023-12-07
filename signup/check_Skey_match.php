@@ -1,8 +1,11 @@
 <?php
 // Password strength function (modify as needed)
 function checkSkeyMatch($Skey) {
+    include_once("./DATABASE/db.php");
     // Example: Check if Skey matches
-    if ($Skey == 1980) {
+    $sql = 'Select SecurityKey FROM admin where SecurityKey = '.$Skey;
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
         return "Accepted";
     } else {
         return "Error!";

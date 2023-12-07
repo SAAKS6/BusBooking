@@ -81,7 +81,7 @@
                 </div>
                 <div class="schedual_flex Passanger_info_flex">
                     <table class="table_list" style="padding-bottom: 0px;">
-                        <form action="../ticket//generateTicket.php" method="post" class="passanger_form">
+                        <form action="../ticket/generateTicket.php" method="post" class="passanger_form">
                             <tr>
                                 <td>
                                     <input type="text" name="credit_card_number" id="credit_card_number" placeholder="Enter Number" required>

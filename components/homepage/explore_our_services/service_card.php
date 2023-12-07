@@ -19,7 +19,7 @@ function generateServicesCard($array) {
     </div>
     <div class="explore_our_services_white">
     <h3 class="explore_our_services_title">' . $array['card_from'] . 
-    ' <span><img src=".//..//..//images//home//explore_our_services//two_way_arrow_white.svg" alt="TWO WAY ARROW" width="30" ></span> '.
+    ' <span><img src="https://img.icons8.com/ios/50/058b8c/guarantee--v1.png" alt="TWO WAY ARROW" width="30" ></span> '.
     $array['card_to'].'</h3>
     <button class="explore_our_services_button">Book Now</button>
     </div>

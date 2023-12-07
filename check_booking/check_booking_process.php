@@ -4,29 +4,31 @@ include_once('../COMPONENTS/ticket/ticket_details.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $bookingId = $_POST['bookingId'];
-
+    // global $conn;
     // Retrieve the value of bookingId from the AJAX request
-    $receivedBookingId = isset($_POST['bookingId']) ? $_POST['bookingId'] : '';
+    $bookingId = $_POST['bookingId'];
+    $tripType = 0;
 
-    // ENDNDENDENDNED
-    global $conn;
-    session_start();
-    $td = $_SESSION['TD'];
-
+    $sql = "SELECT Rschedual FROM user WHERE Id = ".$bookingId;
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $tripType = $row["Rschedual"];
+    }
+echo $tripType;
+echo $bookingId;
+// die();
     // Define the SQL query to select data from the 'user' table.
     //$sqlQuery = "SELECT * FROM schedual
-    if ($td->getType() == 2) {
+    if ($tripType > 0) {//MEANS RETURN TYPE
         $sqlQuery1 = 'SELECT u.Id, u.Fname, u.Mname, u.Lname, u.Cnic, u.Tel, u.Email, u.Dob, u.TimeStamp,
         s.Date, s.FromCity, s.ToCity, s.Departure, s.TripTime, s.Arrival, s.Price, s.Seats
         FROM user u
-        INNER JOIN schedual s ON u.Dschedual = s.id ' .
-            'WHERE u.Id = "' . $receivedBookingId . '";';
+        INNER JOIN schedual s ON u.Dschedual = s.id WHERE u.Id = ' . $bookingId;
         $sqlQuery2 = 'SELECT u.Id, u.Fname, u.Mname, u.Lname, u.Cnic, u.Tel, u.Email, u.Dob, u.TimeStamp,
         s.Date, s.FromCity, s.ToCity, s.Departure, s.TripTime, s.Arrival, s.Price, s.Seats
         FROM user u
-        INNER JOIN schedual s ON u.Rschedual = s.id ' .
-            'WHERE u.Id = "' . $receivedBookingId . '";';
+        INNER JOIN schedual s ON u.Rschedual = s.id WHERE u.Id = ' . $bookingId;
         // Execute the SQL query and store the result in the variable $result.
         try {
             $result = $conn->query($sqlQuery1);
@@ -139,12 +141,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             >NO BOOKING</span> FOUND! </h3></td>
             </tr>';
         }
-    } else { //FOR SELECT TYPE = ONE WAY
+    } elseif ($tripType == 0) { //FOR SELECT TYPE = ONE WAY
         $sqlQuery = 'SELECT u.Id, u.Fname, u.Mname, u.Lname, u.Cnic, u.Tel, u.Email, u.Dob, u.TimeStamp,
         s.Date, s.FromCity, s.ToCity, s.Departure, s.TripTime, s.Arrival, s.Price, s.Seats
         FROM user u
         INNER JOIN schedual s ON u.Dschedual = s.id ' .
-            'WHERE u.Id = "' . $receivedBookingId . '";';
+            'WHERE u.Id = "' . $bookingId . '";';
 
         // Execute the SQL query and store the result in the variable $result.
         $result = $conn->query($sqlQuery);

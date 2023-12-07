@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rihal - My Booking</title>
     <link rel="stylesheet" href="./check_booking.css">
+    <link rel="stylesheet" href="../home/style.css">
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 </head>
 
@@ -62,7 +63,6 @@
 
         function checkBooking() {
             var bookingId = $('#bookingId').val();
-
             // Using jQuery for AJAX
             $.ajax({
                 type: 'POST',
@@ -76,7 +76,6 @@
             });
             $('.searh_section').hide();
             $('.schedual_section').show();
-
         }
         
 

@@ -11,7 +11,6 @@ $sql = "INSERT INTO admin (Name, Pass) VALUES ('".$username."', '".$pass."')";
 
 if ($conn->query($sql) === TRUE) {
     echo "Record inserted successfully";
-    $_SESSION["uname"] = $username;
     $conn->close();
     header("Location: http://localhost/webProject/busBooking/login/login.php");
     exit();

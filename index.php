@@ -46,7 +46,7 @@ session_start();
   <header>
     <div class="page_width">
         <div class="nav_desktop">
-            <div class="logo"><img src="./images/header/logo/logo.svg" alt="Company logo" /></div>
+            <div class="logo"><img src="./images/header/logo/logo.png" alt="Company logo" /></div>
             <nav>
                 <ul>
                     <li><a href="./index.php">Home</a></li>
@@ -54,21 +54,26 @@ session_start();
                         <a href="/service">Services</a>
                         <div class="inner_service">
                             <ul class="service_list">
-                                <li><a href="./check_booking//check_booking.php">My Booking</a></li>
-                                <li><a href="./index//index.php">Book Now</a></li>
-                                <li><a href="./courier//courier.php">Courier</a></li><!--CREATE THIS FILE-->
+                                <li><a href="./check_booking/check_booking.php">My Booking</a></li>
+                                <li><a href="./index.php">Book Now</a></li>
+                                <li><a href="./courier/courier.php">Courier</a></li><!--CREATE THIS FILE-->
                             </ul>
                         </div>
                     </li>
-                    <li><a href="./check_booking//check_booking.php">My Booking</a></li><!-- Add it to From & To DIV -->
-                    
+                    <li><a href="./check_booking/check_booking.php">My Booking</a></li><!-- Add it to From & To DIV -->
+                    <?php
+                    // echo $session_id(); // This should be replaced with the following line
+                    if (isset($_SESSION["ANAME"])) {
+                        echo '<li><a href="./admin_dashboard/admin.php">Admin Dashboard</a></li>';
+                    }
+                    ?>
                     <li class="outer_user">
-                        <a href="javascript:void(0)"><img src="./images/header//logo//user.png" alt="Call logo">
+                        <a href="javascript:void(0)"><img src="./images/header/logo/user.png" alt="Call logo">
                                 <span class="outer_user_span_flex">
                                     <?php
                                         // echo $session_id(); // This should be replaced with the following line
-                                        if (isset($_SESSION["uname"])) {
-                                            echo '<p>'.$_SESSION["uname"].'</p>';
+                                        if (isset($_SESSION["ANAME"])) {
+                                            echo '<p>'.$_SESSION["ANAME"].'</p>';
                                         }
                                         else{
                                             echo '<p>Account</p>';
@@ -79,7 +84,7 @@ session_start();
                         <div class="inner_user">
                             <ul class="user_list">
                                 <?php
-                                    if (isset($_SESSION["uname"])) {
+                                    if (isset($_SESSION["ANAME"])) {
                                         echo '<li><a href="./login/logout.php">Log out</a></li>';
                                     }
                                     else{
@@ -223,7 +228,7 @@ session_start();
 
         <div class="who_we_are_left">
           <div class="who_we_are_img">
-            <img src="./images//home//who_we_are//who_we_are_image.svg" alt="who we are image" />
+            <img src="./images/header/logo/logo.png" alt="who we are image" />
           </div>
         </div>
 
@@ -248,7 +253,7 @@ session_start();
   </section>
 
   <!-- COMPANY AUTHORITY SECTION -->
-  <section class="company_authority_section section_margin">
+  <!-- <section class="company_authority_section section_margin">
     <div class="page_width">
       <div class="company_authority_grid">
 
@@ -268,10 +273,10 @@ session_start();
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- OUR CLIENTS SECTION  -->
-  <section class="our_clients_section section_margin">
+  <!-- <section class="our_clients_section section_margin">
     <div class="page_width">
 
       <div class="our_clients_title">
@@ -290,7 +295,7 @@ session_start();
 
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- FOOTER SECTION -->
   <section class="quick_service_section">
@@ -308,13 +313,13 @@ session_start();
   <div class="page_width">
     <div class="footer_inner_grid">
       <div class="footer_about">
-        <div class="footer_about_img"><img src="./images//header//logo//logo.svg" alt="Company logo" /></div>
+        <div class="footer_about_img"><img src="./images/header/logo/logo.png" alt="Company logo" /></div>
         <p class="footer_about_img_text">Your safety is our priority. At RIHAL, we exclusively recruit skilled professionals to ensure uncompromised security, just for your peace of mind.</div>
       <nav class="footer_nav">
         <ul>
           <li><a href="./index.php">Home</a></li>
           <li><a href="./service">Service</a></li>
-          <li><a href="./service">My Booking</a></li>
+          <li><a href="./check_booking/check_booking.php">My Booking</a></li>
           <li><a href="./contact-us">Contact Us</a></li>
         </ul>
       </nav>
@@ -346,21 +351,18 @@ session_start();
   </div>
 </footer>
 
+  <script src="./home//index.js"></script>
+
   <script>
     var formLocationDataArray = <?php echo json_encode($form_location_data_array); ?>;
-    // var $fromcity;
-  </script>
 
-  <script src="./home//hscroll.js"></script>
-
-  <script>
     document.addEventListener('DOMContentLoaded', function() {
       // Call the function to populate the "From" dropdown
-      populateDropdown('from', 'to', formLocationDataArray);
+      populateDropdownInitial('from', 'to', formLocationDataArray);
     });
 
     document.getElementById('from').addEventListener('change', function() {
-      populateToDropdown(this.value, 'to', formLocationDataArray)
+      populateDropdownOnChange(this.value, 'to', formLocationDataArray)
     });
   </script>
 

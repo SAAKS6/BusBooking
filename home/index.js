@@ -1,25 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // Get the services grid
-  var servicesGrid = document.querySelector(".explore_our_services_grid");
-
-  // Add event listeners for mouseenter and wheel events
-  servicesGrid.addEventListener("mouseenter", function () {
-    // On mouse enter, add a class to enable scrolling
-    servicesGrid.classList.add("scrollable");
-  });
-
-  servicesGrid.addEventListener("mouseleave", function () {
-    // On mouse leave, remove the class to disable scrolling
-    servicesGrid.classList.remove("scrollable");
-  });
-
-  servicesGrid.addEventListener("wheel", function (e) {
-    // Scroll horizontally based on the wheel direction
-    e.preventDefault();
-    servicesGrid.scrollLeft += e.deltaY;
-  });
-});
-
 // HOMEPAGE - BANNER SECTION - BOOKING FORM - TRIP TYPE (one way, return & multicity)
 // Function Call on the Trip type section of the booking form in the homepage
 // to set the corresponding value of the type to the hidden input in the respective div
@@ -105,21 +83,25 @@ function selectedValue(clickedElement) {
 // HOMEPAGE - BANNER SECTION - BOOKING FORM - LOCATION (From , To)
 // This func will be used to populate the 'From' & 'To' drope down in booking Form
 //and excluding the from drop down selection from the to drop down
-document.addEventListener("DOMContentLoaded", function () {
-  var fromDropdown = document.getElementById("from");
-  var toDropdown = document.getElementById("to");
 
-  // Initial population of "From" dropdown
-  populateDropdown(fromDropdown, toDropdown, formLocationDataArray);
 
-  // Add change event listener to "From" dropdown
-  fromDropdown.addEventListener("change", function () {
-    console.log("Selected value:", this.value);
-    // Your custom logic here
-  });
-});
+// document.addEventListener("DOMContentLoaded", function () {
+//   var fromDropdown = document.getElementById("from");
+//   var toDropdown = document.getElementById("to");
 
-function populateDropdown(fromId, toId, dataArray) {
+//   // Initial population of "From" dropdown
+//   populateDropdown(fromDropdown, toDropdown, formLocationDataArray);
+
+//   // Add change event listener to "From" dropdown
+//   fromDropdown.addEventListener("change", function () {
+//     console.log("Selected value:", this.value);
+//     // Your custom logic here
+
+//   });
+// });
+
+function populateDropdownInitial(fromId, toId, dataArray) {
+  
   var from = document.getElementById(fromId);
   var to = document.getElementById(toId);
 
@@ -138,7 +120,7 @@ function populateDropdown(fromId, toId, dataArray) {
   });
 }
 
-function populateToDropdown(fromValue, toId, dataArray) {
+function populateDropdownOnChange(fromValue, toId, dataArray) {
   var to = document.getElementById(toId);
   to.innerHTML = "";
 

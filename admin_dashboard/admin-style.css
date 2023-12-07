@@ -1,0 +1,263 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+}
+
+body {
+  background-color: #f9f9f9;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.admin-container {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 25% 75%;
+}
+
+.admin-container .left {
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-container .left a {
+  text-decoration: none;
+}
+
+.admin-container .left .option-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #058B8C;
+  width: 100%;
+  height: 80px;
+}
+
+.admin-container .left .option-box #selectOption {
+  appearance: none;
+  border: none;
+  color: #1E1E1E;
+  font-size: 18px;
+  font-weight: 600;
+  background: transparent;
+  padding: 15px 30px;
+  border-bottom: 2px solid #058B8C;
+  border-radius: 15px;
+  width: 80%;
+  text-align: center;
+}
+
+.admin-container .left .option-box #selectOption:hover {
+  cursor: pointer;
+  color: #058B8C;
+  background-color: #f9f9f9;
+  font-weight: 700;
+}
+
+.admin-container .left .option-box p {
+  color: black;
+  text-decoration: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.admin-container .left .option-box:hover {
+  background-color: #058b8c;
+}
+
+.admin-container .left .option-box:hover p {
+  color: #f9f9f9;
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.admin-container .right {
+  background-color: #efefef;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right .right_form {
+  background-color: #fff;
+  border-radius: 15px;
+  border: 1px solid #efeee5;
+  padding: 30px;
+  width: 800px;
+  height: 650px;
+  margin: 0 auto;
+  color: #1f3c52;
+  padding-bottom: 50px;
+}
+
+.right .right_form p {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-decoration: underline;
+}
+
+.right .right_form form .inputField {
+  width: 100%;
+  border: 1px solid #efeee5;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.right .createAdmin_container.right_form form label {
+  font-size: 22px;
+  color: green;
+}
+
+.right .right_form form .inputField input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 10px;
+  color: #1f3c52;
+  font-size: 15px;
+}
+
+.right .right_form form .inputField select {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 10px;
+  color: #1f3c52;
+  font-size: 15px;
+}
+
+.right .right_form form .inputField select option:first-child {
+  color: #777;
+}
+
+.right .right_form form .inputField textarea {
+  width: 100%;
+  font-size: 15px;
+  color: #1f3c52;
+  resize: none;
+  outline: none;
+  border: 1px solid #efeee5;
+  padding: 10px;
+
+
+}
+
+.right .right_form .form-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 20px;
+  text-decoration: none;
+}
+
+.right .right_form form button {
+  outline: none;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  background-color: #efeee5;
+  color: #1f3c52;
+  font-weight: 500;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.right .right_form form button a {
+  text-decoration: none;
+  color: #1f3c52;
+}
+
+.admin-container .right label {
+  font-size: 18px;
+}
+
+
+/* Delete Post */
+/* Basic table styles */
+.delete_table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.delete_table th,
+.delete_table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  font-size: 14px;
+}
+
+/* Table header styles */
+.delete_table th {
+  background-color: #f2f2f2;
+  font-weight: 500;
+  font-size: 16px;
+
+}
+
+/* Alternating row colors */
+.delete_table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Hover effect on rows */
+.delete_table tbody tr:hover {
+  background-color: #f2f2f2;
+}
+
+/* Anchor tag styles */
+.delete_table a {
+  color: red;
+  text-decoration: none;
+}
+
+.delete_table a:hover {
+  text-decoration: underline;
+}
+
+/* Update Profile */
+.currentProfilePic {
+  width: 100px;
+  height: 100px;
+}
+
+.currentProfilePic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+/*  */
+.welcome_container {
+  display: block;
+}
+
+.welcome_container .right_form {
+  background: rgb(5, 139, 140);
+  background: linear-gradient(142deg, rgba(255, 255, 255, 1) 15%, rgba(5, 139, 140, 1) 10%);
+}
+
+.welcome_container .right_form h3{
+  text-align: center; 
+  font-size:32px; 
+  text-decoration: underline;  
+  color: #fff;    
+  width: 100%; 
+  height:100%; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center;
+}
