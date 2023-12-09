@@ -119,10 +119,10 @@ session_start();
           <div class="btn_banner">
             <!-- LOOK FOR LOGIC THAT ALLOW US TO MOVE THE HOME PAGE TO 
             EMERGENCY DIV WHEN CLICKED ON THIS BUTTON -->
-            <a href="javascript:void(0)">contact us</a>
+            <a href="#contact_us">contact us</a>
             <!-- LOOK FOR LOGIC THAT ALLOW US TO MOVE THE HOME PAGE TO 
             AFTER_BANNER_SECTION WHEN CLICKED ON THIS BUTTON -->
-            <a href="javascript:void(0)">learn more</a>
+            <a href="#learn_more">learn more</a>
           </div>
         </div>
         <div class="banner_right"><!-- FROM & TO DIV -->
@@ -207,7 +207,7 @@ session_start();
   <section class="explore_our_services section_margin">
     <div class="page_width">
       <div class="explore_our_service_head">
-        <h2> <span>Top Traveled </span>Routes</h2>
+        <h2> Our <span>Buses </span></h2>
       </div>
       <div class="explore_our_services_grid">
 
@@ -222,7 +222,7 @@ session_start();
   </section>
 
   <!-- WHO WE ARE SECTION -->
-  <section class="who_we_are_section section_margin">
+  <section class="who_we_are_section section_margin" id="learn_more">
     <div class="page_width">
       <div class="who_we_are_grid">
 
@@ -301,7 +301,7 @@ session_start();
   <section class="quick_service_section">
   <div class="page_width">
     <div class="quick_service_inner_section">
-      <h2>Customer Care</h2>
+      <h2 id="contact_us">Customer Care</h2>
       <a href="tel:+971586747123"><img src="./images/header//logo//call.png" height="40" alt="Phone Logo">
         <span>+971 58 67 47 123</span>
       </a>

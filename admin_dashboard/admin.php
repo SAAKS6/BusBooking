@@ -102,16 +102,14 @@ $createScheduleResponse = ''; // Initialize an empty message variable
 
 // Check if the create schedule form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['scheduleDate']) && isset($_POST['departure_city']) && isset($_POST['arrival_city']) && isset($_POST['departureTime']) && isset($_POST['arrivalTime']) && isset($_POST['price'])) {
-    // Retrieve the schedule ID to be deleted
-    $deleteScheduleId = $_POST['delete_schedule_id'];
-
     // Execute SQL delete statement
-    $sql = "DELETE FROM schedual WHERE Id = $deleteScheduleId";
-
+    $sql = "INSERT INTO `schedual` (`Date`, `FromCity`, `ToCity`, `Departure`, `TripTime`, `Arrival`, `Price`, `Seats`) VALUES ('{$_POST['scheduleDate']}', '{$_POST['departure_city']}', '{$_POST['arrival_city']}', '{$_POST['departureTime']}', '". calculateTripTime($_POST['departureTime'], $_POST['arrivalTime']) ."', '{$_POST['arrivalTime']}', '{$_POST['price']}', 30)";
+// echo calculateTripTime($_POST['departureTime'],$_POST['arrivalTime']);
+// die();
     if ($conn->query($sql) === true) {
-        $deleteScheduleResponse = "Schedule deleted successfully!";
+        $deleteScheduleResponse = "Schedule created successfully!";
     } else {
-        $deleteScheduleResponse = "Error deleting schedule: " . $conn->error;
+        $deleteScheduleResponse = "Error creating schedule: " . $conn->error;
     }
 }
 
@@ -371,7 +369,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_user_id'])) {
         </div>
     </section> -->
 
-    <section class="section_margin">
+    <section class="section_margin admin_dashboard">
         <div class="admin-container">
             <div class="left">
                 <div class="option-box">
@@ -445,19 +443,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_user_id'])) {
                 <div class="createAdmin_container" style="display: none;">
                     <div class="right_form">
                         <form action="./admin.php" method="POST" id="createAdmin" onsubmit="validate(event);">
-                            <p>Create an Admin!</p>
+                            <p>Create Admin!</p>
 
-                            <label for="name">Name:</label>
+                            <!-- <label for="name">Name:</label> -->
                             <div class="inputField">
                                 <input type="text" name="name" placeholder="Enter the name" required />
                             </div>
 
-                            <label for="password">Password:</label>
+                            <!-- <label for="password">Password:</label> -->
                             <div class="inputField">
                                 <input type="password" name="password" placeholder="Enter the password" required />
                             </div>
 
-                            <label for="pin">Pin:</label>
+                            <!-- <label for="pin">Pin:</label> -->
                             <div class="inputField">
                                 <input type="password" name="pin" placeholder="Enter the pin" required />
                             </div>
@@ -504,9 +502,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_user_id'])) {
                                             echo '</td>';
                                             echo '</tr>';
                                         }
-                                        echo '<tr><td colspan="2">' . $deleteAdminResponse . '</td></tr>';
+                                        echo '<tr><th colspan="2">' . $deleteAdminResponse . '</th></tr>';
                                     } else {
-                                        echo '<tr><td colspan="2">No admins available.</td></tr>';
+                                        echo '<tr><th colspan="2">No admins available.</th></tr>';
                                     }
                                     ?>
                                 </tbody>
@@ -519,20 +517,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_user_id'])) {
                 <!-- //Functionality - Update ADMIN -->
                 <div class="updateAdmin_container" style="display: none;">
                     <div class="right_form">
-                        <p>Create an Admin!</p>
+                        <p>Update Admin!</p>
                         <form action="./admin.php" method="POST">
-                            <label for="update_admin_id">Admin ID:</label>
+                            <!-- <label for="update_admin_id">Admin ID:</label> -->
                             <div class="inputField">
-                                <input type="text" id="update_admin_id" name="update_admin_id" required>
+                                <input type="text" id="update_admin_id" name="update_admin_id" placeholder="Enter Admin ID" required>
                             </div>
-                            <label for="update_admin_name">New Name:</label>
+                            <!-- <label for="update_admin_name">New Name:</label> -->
                             <div class="inputField">
-                                <input type="text" id="update_admin_name" name="update_admin_name" required>
+                                <input type="text" id="update_admin_name" name="update_admin_name" placeholder="Enter New Name" required>
                             </div>
 
-                            <label for="update_admin_password">New Password:</label>
+                            <!-- <label for="update_admin_password">New Password:</label> -->
                             <div class="inputField">
-                                <input type="password" id="update_admin_password" name="update_admin_password" required>
+                                <input type="password" id="update_admin_password" name="update_admin_password" placeholder="Enter New Password" required>
                             </div>
 
                             <?php
@@ -553,39 +551,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_user_id'])) {
                 <!-- Functionality - Create Schedule -->
                 <div class="createSchedule_container" style="display: none;">
                     <div class="right_form">
-                        <form action="./admin.php" method="POST" id="createSchedule" onsubmit="validate(event);">
-                            <p>Create a Schedule!</p>
+                        <form action="./admin.php" method="POST" id="createSchedule">
+                            <p>Create Schedule!</p>
 
-                            <label for="scheduleDate">Schedule Date:</label>
+                            <!-- <label for="scheduleDate">Schedule Date:</label> -->
                             <div class="inputField">
-                                <input type="date" name="scheduleDate" required />
+                                <input type="date" name="scheduleDate" placeholder="Select Schedule Date" required />
                             </div>
 
-                            <label for="fromCity">From City:</label>
+                            <!-- <label for="fromCity">From City:</label> -->
                             <div class="inputField">
                                 <select name="departure_city" id="from" required>
                                     <option value="" disabled selected>From<span>*</span></option>
                                 </select>
                             </div>
 
-                            <label for="toCity">To City:</label>
+                            <!-- <label for="toCity">To City:</label> -->
                             <div class="inputField">
                                 <select name="arrival_city" id="to" required>
                                     <option value="" disabled selected>To<span>*</span></option>
                                 </select>
                             </div>
 
-                            <label for="departureTime">Departure Time:</label>
+                            <!-- <label for="departureTime">Departure Time:</label> -->
                             <div class="inputField">
-                                <input type="time" name="departureTime" required />
+                                <input type="time" name="departureTime" placeholder="Set Departure Time" required />
                             </div>
 
-                            <label for="arrivalTime">Arrival Time:</label>
+                            <!-- <label for="arrivalTime">Arrival Time:</label> -->
                             <div class="inputField">
-                                <input type="time" name="arrivalTime" required />
+                                <input type="time" name="arrivalTime" placeholder="Set Arrival Time" required />
                             </div>
 
-                            <label for="price">Price:</label>
+                            <!-- <label for="price">Price:</label> -->
                             <div class="inputField">
                                 <input type="number" name="price" placeholder="Enter the price" step="0.01" required />
                             </div>
@@ -645,9 +643,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_user_id'])) {
                                             echo '</td>';
                                             echo '</tr>';
                                         }
-                                        echo '<tr><td colspan="9" style="text-align: center;">' . $deleteScheduleResponse . '</td></tr>';
+                                        echo '<tr><th colspan="9" style="text-align: center;">' . $deleteScheduleResponse . '</th></tr>';
                                     } else {
-                                        echo '<tr><td colspan="9">No schedules available.</td></tr>';
+                                        echo '<tr><th colspan="9">No schedules available.</th></tr>';
                                     }
                                     ?>
                                 </tbody>
@@ -662,39 +660,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_user_id'])) {
                     <div class="right_form">
                         <p>Update Schedule!</p>
                         <form action="./admin.php" method="POST">
-                            <label for="update_schedule_id">Schedule ID:</label>
+                            <!-- <label for="update_schedule_id">Schedule ID:</label> -->
                             <div class="inputField">
-                                <input type="text" id="update_schedule_id" name="update_schedule_id">
+                                <input type="text" id="update_schedule_id" name="update_schedule_id" placeholder="Enter Schedule ID">
                             </div>
 
                             <label for="update_schedule_date">New Schedule Date:</label>
                             <div class="inputField">
-                                <input type="date" id="update_schedule_date" name="update_schedule_date">
+                                <input type="date" id="update_schedule_date" name="update_schedule_date" placeholder="Select New Schedule Date">
                             </div>
 
-                            <label for="update_departure_city">New Departure City:</label>
+                            <!-- <label for="update_departure_city">New Departure City:</label> -->
                             <div class="inputField">
-                                <input type="text" id="update_departure_city" name="update_departure_city">
+                                <input type="text" id="update_departure_city" name="update_departure_city" placeholder="Select New Departure City">
                             </div>
 
-                            <label for="update_arrival_city">New Arrival City:</label>
+                            <!-- <label for="update_arrival_city">New Arrival City:</label> -->
                             <div class="inputField">
-                                <input type="text" id="update_arrival_city" name="update_arrival_city">
+                                <input type="text" id="update_arrival_city" name="update_arrival_city" placeholder="Enter New Arrival City">
                             </div>
 
                             <label for="update_departure_time">New Departure Time:</label>
                             <div class="inputField">
-                                <input type="time" id="update_departure_time" name="update_departure_time">
+                                <input type="time" id="update_departure_time" name="update_departure_time" placeholder="Set New Departure Time">
                             </div>
 
                             <label for="update_arrival_time">New Arrival Time:</label>
                             <div class="inputField">
-                                <input type="time" id="update_arrival_time" name="update_arrival_time">
+                                <input type="time" id="update_arrival_time" name="update_arrival_time" placeholder="Set New Arrival Time">
                             </div>
 
-                            <label for="update_price">New Price:</label>
+                            <!-- <label for="update_price">New Price:</label> -->
                             <div class="inputField">
-                                <input type="number" id="update_price" name="update_price">
+                                <input type="number" id="update_price" name="update_price" placeholder="Set New Price">
                             </div>
 
                             <?php
@@ -828,9 +826,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_user_id'])) {
                                                 // 
                                             }
                                         }
-                                        echo '<tr><td colspan="12" style="text-align: center;">' . $deleteUserResponse . '</td></tr>';
+                                        echo '<tr><th colspan="12" style="text-align: center;">' . $deleteUserResponse . '</th></tr>';
                                     } else {
-                                        echo '<tr><td colspan="12">No User available.</td></tr>';
+                                        echo '<tr><th colspan="12">No User available.</th></tr>';
                                     }
                                     ?>
                                 </tbody>
@@ -844,51 +842,51 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_user_id'])) {
                 <!-- Functionality - Updating User -->
                 <div class="updateUser_container" style="display: block;">
                     <div class="right_form">
-                        <p>Update User Information</p>
+                        <p>Update User</p>
                         <form action="./admin.php" method="POST">
-                            <label for="update_user_id">User ID:</label>
+                            <!-- <label for="update_user_id">User ID:</label> -->
                             <div class="inputField">
-                                <input type="text" id="update_user_id" name="update_user_id">
+                                <input type="text" id="update_user_id" name="update_user_id" placeholder="Enter User ID">
                             </div>
 
-                            <label for="update_fname">New First Name:</label>
+                            <!-- <label for="update_fname">New First Name:</label> -->
                             <div class="inputField">
-                                <input type="text" id="update_fname" name="update_fname">
+                                <input type="text" id="update_fname" name="update_fname" placeholder="Enter New First Name">
                             </div>
 
-                            <label for="update_mname">New Middle Name:</label>
+                            <!-- <label for="update_mname">New Middle Name:</label> -->
                             <div class="inputField">
-                                <input type="text" id="update_mname" name="update_mname">
+                                <input type="text" id="update_mname" name="update_mname" placeholder="Enter New Middle Name">
                             </div>
 
-                            <label for="update_lname">New Last Name:</label>
+                            <!-- <label for="update_lname">New Last Name:</label> -->
                             <div class="inputField">
-                                <input type="text" id="update_lname" name="update_lname">
+                                <input type="text" id="update_lname" name="update_lname" placeholder="Enter New Last Name">
                             </div>
 
-                            <label for="update_cnic">New CNIC:</label>
+                            <!-- <label for="update_cnic">New CNIC:</label> -->
                             <div class="inputField">
-                                <input type="text" id="update_cnic" name="update_cnic">
+                                <input type="text" id="update_cnic" name="update_cnic" placeholder="Enter New CNIC">
                             </div>
 
-                            <label for="update_gender">New Gender:</label>
+                            <!-- <label for="update_gender">New Gender:</label> -->
                             <div class="inputField">
-                                <input type="text" id="update_gender" name="update_gender">
+                                <input type="text" id="update_gender" name="update_gender" placeholder="Select New Gender">
                             </div>
 
-                            <label for="update_tel">New Phone:</label>
+                            <!-- <label for="update_tel">New Phone:</label> -->
                             <div class="inputField">
-                                <input type="text" id="update_tel" name="update_tel">
+                                <input type="text" id="update_tel" name="update_tel" placeholder="Enter New Phone">
                             </div>
 
                             <label for="update_dob">New Date of Birth:</label>
                             <div class="inputField">
-                                <input type="date" id="update_dob" name="update_dob">
+                                <input type="date" id="update_dob" name="update_dob" placeholder="Select New Date of Birth">
                             </div>
 
-                            <label for="update_email">New Email:</label>
+                            <!-- <label for="update_email">New Email:</label> -->
                             <div class="inputField">
-                                <input type="text" id="update_email" name="update_email">
+                                <input type="text" id="update_email" name="update_email" placeholder="Enter New Email">
                             </div>
 
                             <?php

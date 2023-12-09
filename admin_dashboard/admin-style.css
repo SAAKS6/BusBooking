@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -16,6 +17,10 @@ body {
   height: 100%;
 }
 
+.admin_dashboard {
+  border-top: 1px solid #058B8C;
+}
+
 .admin-container {
   width: 100%;
   height: 100vh;
@@ -24,9 +29,16 @@ body {
 }
 
 .admin-container .left {
-  background-color: #f9f9f9;
+  /* background-color: #f9f9f9; */
+  background: rgb(5, 139, 140);
+  background: linear-gradient(142deg, rgba(5, 139, 140, 1) 55px, rgba(255, 255, 255, 1) 7%);
   display: flex;
   flex-direction: column;
+  /* border-right: 2px solid #058B8C; */
+}
+
+.admin-container .left>* {
+  border-right: 1px solid #058B8C;
 }
 
 .admin-container .left a {
@@ -54,6 +66,7 @@ body {
   border-radius: 15px;
   width: 80%;
   text-align: center;
+  text-transform: uppercase;
 }
 
 .admin-container .left .option-box #selectOption:hover {
@@ -81,37 +94,49 @@ body {
 }
 
 .admin-container .right {
-  background-color: #efefef;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: #F9F9F9;
+  display: grid;
+  grid-template-columns: 1fr;
 }
 
 .right .right_form {
-  background-color: #fff;
-  border-radius: 15px;
-  border: 1px solid #efeee5;
+  /* background-color: #F9F9F9; */
+  background: rgb(5, 139, 140);
+  background: linear-gradient(142deg, rgba(5, 139, 140, 1) 55px, rgba(255, 255, 255, 1) 7%);
+  border-radius: 55px;
+  border: 1px solid #058B8C;
   padding: 30px;
-  width: 800px;
-  height: 650px;
-  margin: 0 auto;
-  color: #1f3c52;
-  padding-bottom: 50px;
+  width: 100%;
+  height: 100%;
 }
 
 .right .right_form p {
   text-align: center;
-  font-size: 26px;
-  font-weight: 600;
+  color: #058B8C;
+  text-transform: uppercase;
+  font-size: 30px;
+  font-weight: 700;
   margin-bottom: 20px;
-  text-decoration: underline;
 }
 
-.right .right_form form .inputField {
-  width: 100%;
-  border: 1px solid #efeee5;
+.right .right_form form .inputField input {
+  /* width: 100%;
+  border-bottom: 1px solid #058B8C;
   border-radius: 5px;
-  margin: 10px 0;
+  margin: 10px 0; */
+  color: #1E1E1E;
+  font-size: 18px;
+  font-weight: 600;
+  background: transparent;
+  padding: 15px 30px;
+  border-bottom: 2px solid #058B8C;
+  border-radius: 15px;
+}
+
+.right .right_form form .inputField input:hover {
+  cursor: pointer;
+  color: #058B8C;
+  font-weight: 700;
 }
 
 .right .createAdmin_container.right_form form label {
@@ -119,14 +144,14 @@ body {
   color: green;
 }
 
-.right .right_form form .inputField input {
+/* .right .right_form form .inputField input {
   width: 100%;
   border: none;
   outline: none;
   padding: 10px;
   color: #1f3c52;
   font-size: 15px;
-}
+} */
 
 .right .right_form form .inputField select {
   width: 100%;
@@ -137,25 +162,35 @@ body {
   font-size: 15px;
 }
 
-.right .right_form form .inputField select option:first-child {
-  color: #777;
+
+.right .right_form form .inputField {
+  width: 100%;
+  border-bottom: 1px solid #058B8C;
+  border-radius: 5px;
+  margin: 10px 0;
 }
 
-.right .right_form form .inputField textarea {
+.right .right_form form .inputField input {
   width: 100%;
-  font-size: 15px;
-  color: #1f3c52;
-  resize: none;
-  outline: none;
-  border: 1px solid #efeee5;
-  padding: 10px;
+  border: none;
+  color: #1E1E1E;
+  font-size: 18px;
+  font-weight: 600;
+  background: transparent;
+  padding: 15px 30px;
+  border-radius: 15px;
+}
 
-
+.right .right_form form .inputField input:hover {
+  cursor: pointer;
+  color: #058B8C;
+  font-weight: 700;
 }
 
 .right .right_form .form-buttons {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: flex-end;
   gap: 18px;
   margin-top: 20px;
   text-decoration: none;
@@ -164,82 +199,95 @@ body {
 .right .right_form form button {
   outline: none;
   border: none;
-  padding: 6px 12px;
-  border-radius: 5px;
-  background-color: #efeee5;
-  color: #1f3c52;
+  padding: 8px 15px;
+  border-radius: 25px;
+  background-color: #058B8C;
+  color: #F9F9F9;
   font-weight: 500;
   font-size: 16px;
-  text-decoration: none;
+  text-transform: uppercase;
 }
 
-.right .right_form form button a {
-  text-decoration: none;
-  color: #1f3c52;
-}
+.right .right_form form button:hover {
 
-.admin-container .right label {
-  font-size: 18px;
+  background-color: #F9F9F9;
+  color: #058B8C;
+  border: 1px dashed #058B8C;
+  font-weight: 800;
 }
-
 
 /* Delete Post */
 /* Basic table styles */
 .delete_table table {
   width: 100%;
   border-collapse: collapse;
+  /* TABLE BORDER */
 }
 
 .delete_table th,
 .delete_table td {
-  border: 1px solid #ddd;
-  padding: 8px;
+  border: 1px dashed #058B8C;
+  padding: 10px;
   text-align: left;
   font-size: 14px;
 }
 
 /* Table header styles */
 .delete_table th {
-  background-color: #f2f2f2;
+  background-color: #058B8C;
+  border: 1px solid #F9F9F9;
+  color: #F9F9F9;
+  text-transform: uppercase;
+  text-align: center;
   font-weight: 500;
   font-size: 16px;
-
 }
 
 /* Alternating row colors */
-.delete_table tbody tr:nth-child(even) {
-  background-color: #f9f9f9;
+.delete_table tbody tr:last-child td {
+  border: none;
+}
+.delete_table tbody tr:last-child {
+  column-span: all;
 }
 
-/* Hover effect on rows */
+/* Hover effect on WHOLE rows */
 .delete_table tbody tr:hover {
-  background-color: #f2f2f2;
+  /* background-color: #f2f2f2; */
 }
 
-/* Anchor tag styles */
-.delete_table a {
-  color: red;
-  text-decoration: none;
+/* Hover effect on EACH CELL in a row */
+.delete_table tbody tr td:hover {
+  /* background-color: #f2f2f2; */
+  background: rgb(5, 139, 140);
+  background: linear-gradient(142deg, rgba(5, 140, 140, 0.543) 30%, rgba(255, 255, 255, 1) 45%);
+}
+  
+.delete_table tbody tr td:last-child {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
-.delete_table a:hover {
-  text-decoration: underline;
+.delete_table tbody tr td button {
+  /* background-color: #f2f2f2; */
+  outline: none;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 25px;
+  background-color: #F9F9F9;
+  color: #058B8C;
+  font-weight: 500;
+  font-size: 16px;
+  text-transform: uppercase;
 }
 
-/* Update Profile */
-.currentProfilePic {
-  width: 100px;
-  height: 100px;
+.delete_table tbody tr td button:hover {
+    color: #ffffff;
+    background-color: #8d0f11;
+    border: none;
 }
 
-.currentProfilePic img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  margin-bottom: 20px;
-}
-
-/*  */
 .welcome_container {
   display: block;
 }
@@ -247,17 +295,19 @@ body {
 .welcome_container .right_form {
   background: rgb(5, 139, 140);
   background: linear-gradient(142deg, rgba(255, 255, 255, 1) 15%, rgba(5, 139, 140, 1) 10%);
+  width: 100%;
+  height: 82.8%;
 }
 
-.welcome_container .right_form h3{
-  text-align: center; 
-  font-size:32px; 
-  text-decoration: underline;  
-  color: #fff;    
-  width: 100%; 
-  height:100%; 
-  display: flex; 
-  flex-direction: column; 
-  justify-content: center; 
+.welcome_container .right_form h3 {
+  text-align: center;
+  font-size: 32px;
+  text-decoration: underline;
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
