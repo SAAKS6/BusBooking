@@ -17,7 +17,7 @@
     <?php
     include_once('../COMPONENTS/ticket/ticket_details.php');
     // if($_SESSION['TRIPTYPE']==1){
-        session_start();
+    session_start();
     // }
     $td = $_SESSION['TD'];
     ?>
@@ -35,9 +35,8 @@
     <section class="progress_section section_margin">
         <div class="page_width">
             <div class="progress_flex">
-
                 <?php
-                    
+
                 if ($td->getType() == 1) { //one way
                     $td->setProgressBar(2);
                 } else if ($td->getType() == 2) { //return
@@ -122,11 +121,11 @@
                                 }
                                 ?>
                             </td>
-                            
+
                             <td>
-                            <div class="progress_book_now">
-                                <input type="submit" value="Next >" class="next_btn">
-                            </div>
+                                <div class="progress_book_now">
+                                    <input type="submit" value="Next >" class="next_btn">
+                                </div>
                             </td>
                         </tr>
                     </form>

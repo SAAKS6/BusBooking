@@ -20,15 +20,15 @@
           <li><a href="../index.php">Home</a></li>
           <li><a href="/service">Service</a></li>
           <li><a href="../check_booking/check_booking.php">My Booking</a></li>
-          <li><a href="/contact-us">Contact Us</a></li>
+          <li><a href="../index.php #contact_us">Contact Us</a></li>
         </ul>
       </nav>
       <nav class="footer_nav">
         <ul>
-          <li><a href="#">Facebook</a></li>
-          <li><a href="#">Twitter</a></li>
-          <li><a href="#">Linkedin</a></li>
-          <li><a href="#">Instagram</a></li>
+          <li><a href="https://www.facebook.com/" target="_blank" >Facebook</a></li>
+          <li><a href="https://twitter.com/?lang=en" target="_blank" >Twitter</a></li>
+          <li><a href="https://www.linkedin.com/feed/" target="_blank" >Linkedin</a></li>
+          <li><a href="https://www.instagram.com/" target="_blank" >Instagram</a></li>
         </ul>
       </nav>
       <div class="footer_contect_us">

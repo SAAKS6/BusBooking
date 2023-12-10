@@ -2,7 +2,7 @@
 
 function generateTicket()
 {
-    global $conn;
+    // global $conn;
     include "../DATABASE/db.php";
     $td = $_SESSION['TD'];
 
@@ -214,7 +214,7 @@ function generateTicket()
 }
 function generateBookedTicket()
 {
-    global $conn;
+    // global $conn;
     include "../DATABASE/db.php";
     $td = $_SESSION['TD'];
 

@@ -3,7 +3,6 @@ require_once('../COMPONENTS/ticket/ticket_details.php');
 session_start();
 $td = new TicketDetails();
 $_SESSION['TD'] = $td;
-echo '#DDDDDDDD';
 
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

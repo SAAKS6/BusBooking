@@ -11,35 +11,36 @@
 
 <body>
     <div class="page_width">
-    <form action="./signup_process_form.php" method="post" class="login_form">
-        <h2>Signup</h2>
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required onblur="checkUsernameAvailability()">
-        <p id="usernameResult"></p>
+        <form action="./signup_process_form.php" method="post" class="login_form">
+            <h2>Signup</h2>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required onblur="checkUsernameAvailability()">
+            <p id="usernameResult"></p>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required onkeyup="checkPasswordStrength()">
-        <p id="passwordResult"></p>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required onkeyup="checkPasswordStrength()">
+            <p id="passwordResult"></p>
 
-        <label for="SKey">Security Key:</label>
-        <input type="password" id="SKey" name="SKey" required onblur="checkSkeyMatch()">
-        <p id="SKeyResult"></p>
+            <label for="SKey">Security Key:</label>
+            <input type="password" id="SKey" name="SKey" required onblur="checkSkeyMatch()">
+            <p id="SKeyResult"></p>
 
-        <input type="submit" value="Signup">
-    </form>
+            <input type="submit" value="Signup">
+        </form>
     </div>
-    
-    
-    <script>
 
+
+    <script>
         function checkUsernameAvailability() {
             var username = $('#username').val();
 
             $.ajax({
                 type: 'POST',
                 url: './check_username.php', // Replace with your server endpoint
-                data: { username: username },
-                success: function (response) {
+                data: {
+                    username: username
+                },
+                success: function(response) {
                     $('#usernameResult').html(response);
                 }
             });
@@ -51,8 +52,10 @@
             $.ajax({
                 type: 'POST',
                 url: './check_Skey_match.php', // Replace with your server endpoint
-                data: { SKey: SKey },
-                success: function (response) {
+                data: {
+                    SKey: SKey
+                },
+                success: function(response) {
                     $('#SKeyResult').html(response);
                 }
             });
@@ -64,8 +67,10 @@
             $.ajax({
                 type: 'POST',
                 url: './check_password_strength.php', // Replace with your server endpoint
-                data: { password: password },
-                success: function (response) {
+                data: {
+                    password: password
+                },
+                success: function(response) {
                     $('#passwordResult').html(response);
                 }
             });

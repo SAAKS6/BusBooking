@@ -15,9 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $row = $result->fetch_assoc();
         $tripType = $row["Rschedual"];
     }
-echo $tripType;
-echo $bookingId;
-// die();
+
     // Define the SQL query to select data from the 'user' table.
     //$sqlQuery = "SELECT * FROM schedual
     if ($tripType > 0) {//MEANS RETURN TYPE

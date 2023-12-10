@@ -13,7 +13,6 @@ $username = "root";
 $password = "";
 
 // Attempt to establish a connection to the MySQL database using the provided credentials.
-global $conn;
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
 // Check if the connection was successful.

@@ -442,7 +442,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_user_id'])) {
                 <!-- //Functionality - Create ADMIN -->
                 <div class="createAdmin_container" style="display: none;">
                     <div class="right_form">
-                        <form action="./admin.php" method="POST" id="createAdmin" onsubmit="validate(event);">
+                        <form action="./admin.php" method="POST" id="createAdmin">
                             <p>Create Admin!</p>
 
                             <!-- <label for="name">Name:</label> -->

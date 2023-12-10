@@ -15,7 +15,7 @@
 
     <!-- RETURN LIST SECTION  -->
     <?php
-    include "../COMPONENTS/schedual/schedual_section/schedual_section_list.php";
+    include "../COMPONENTS/schedual/schedual_section/return_section_list.php";
     ?>
 
 

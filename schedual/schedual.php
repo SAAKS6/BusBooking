@@ -15,7 +15,7 @@
 
     <!-- SCHEDUAL LIST SECTION  -->
     <?php
-    include "../COMPONENTS/schedual/schedual_section/schedual_section_list.php";
+        include "../COMPONENTS/schedual/schedual_section/schedual_section_list.php";
     ?>
 
     <!-- TICKET DETAILS CLASS  -->

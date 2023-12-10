@@ -1,11 +1,11 @@
 <?php
 include_once('../COMPONENTS/ticket/ticket_details.php');
-include_once "../DATABASE//db.php";
 session_start();
 $td = $_SESSION['TD'];
 
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    include "../DATABASE/db.php";
     // Check if the selectedTripType is set in the POST data
     if (isset($_POST['fname'])) {
         // NAMES
@@ -48,17 +48,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "Exception: " . $e->getMessage();
         }
         // include('./verify_ticket.php');
+        $conn->close();
         header("Location: ../ticket/verify_ticket.php");
         exit;
     } else {
         // If selectedTripType is not set in the POST data, handle the error
         echo "Error: PIPF.PHP:55";
+        $conn->close();
+        exit;
     }
 }
 
 function insertUser($td)
 {
-    global $conn;
+    include "../DATABASE/db.php";
     if ($td->getType() == 1) {
         $sqlQuery = 'INSERT INTO user (Fname, Mname, Lname, Cnic, Gender, Tel, Dob, Email, TimeStamp, Dschedual)
     VALUES ("' . $td->getFname() . '", "' . $td->getMname() . '", "' . $td->getLname() . '", "' . $td->getIDnumber() . '", "' . $td->getGender() . '", "' . $td->getTel() . '", "' . $td->getDOB() . '", "' . $td->getEmail() . '", "' . $td->getTimestamp() . '", "' . $td->getSlist() . '")';
@@ -83,7 +86,7 @@ function insertUser($td)
 
 function DPrice($td)
 {
-    global $conn;
+    include "../DATABASE/db.php";
     if ($td->getType() == 1) {
         $sqlQuery = 'SELECT s.Price
         FROM schedual s ' .
@@ -125,8 +128,10 @@ function DPrice($td)
                 // echo "SQL2: ".$row['Price'].'<br><br>';
                 $td->setPrice($row['Price']);
             }
+            $conn->close();
         } else {
             echo "Error: PIPF.PHP:130";
+            $conn->close();
         }
     }
 }

@@ -1,16 +1,21 @@
 <?php
 
-function generateDepatureList()
+function generateReturnList()
 {
+
     // include_once ('./components/ticket/ticket_details.php');
     include "../DATABASE/db.php";
-
     $td = $_SESSION['TD'];
 
-    // Define the SQL query to select data from the 'user' table.
-    $sqlQuery = "SELECT * FROM schedual
-    WHERE FromCity = '" . $td->getDCity(0) . "' AND Date = '" . $td->getDDate(0) . "' AND ToCity = '" . $td->getACity(0) . "'";
+    $sqlQuery = "SELECT * FROM schedual WHERE
+    Id <> ".$td->getSlist()."
+    AND (
+        (FromCity = (SELECT ToCity FROM schedual WHERE Id = ".$td->getSlist()."))
+        AND
+        (ToCity = (SELECT FromCity FROM schedual WHERE Id = ".$td->getSlist()."))
+    )";
 
+    
 
     // Execute the SQL query and store the result in the variable $result.
     $result = $conn->query($sqlQuery);
@@ -21,8 +26,8 @@ function generateDepatureList()
         while ($row = $result->fetch_assoc()) {
 
             $print = '
-                <form action="../schedual/schedual_process_form.php" method="post">
-                <input type="hidden" name="selectedSchedual" value="' . $row['Id'] . '">
+                <form action="./return_process_form.php" method="post">
+                <input type="hidden" name="selectedRSchedual" value="' . $row['Id'] . '">
                     <tr>
                         <td>' . $row['Id'] . '</td>
                         <td>' . $row['Date'] . '</td>
@@ -43,7 +48,7 @@ function generateDepatureList()
         }
     } else {
         // If there are no results, display a message indicating that.
-        echo "0 results - SSL.php:48".$conn->error.$td->getDCity(0). $td->getDDate(0) . $td->getACity(0);
+        echo "0 results - SSL.php:96";
     }
 
     // Close the database connection.
