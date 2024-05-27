@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $bookingId = $_POST['bookingId'];
     $tripType = 0;
 
-    $sql = "SELECT Rschedual FROM user WHERE Id = ".$bookingId;
+    $sql = "SELECT Rschedual FROM user WHERE Id = " . $bookingId;
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Define the SQL query to select data from the 'user' table.
     //$sqlQuery = "SELECT * FROM schedual
-    if ($tripType > 0) {//MEANS RETURN TYPE
+    if ($tripType > 0) { //MEANS RETURN TYPE
         $sqlQuery1 = 'SELECT u.Id, u.Fname, u.Mname, u.Lname, u.Cnic, u.Tel, u.Email, u.Dob, u.TimeStamp,
         s.Date, s.FromCity, s.ToCity, s.Departure, s.TripTime, s.Arrival, s.Price, s.Seats
         FROM user u
@@ -74,7 +74,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </form>';
 
                 echo $print;
-
             }
         } else {
             // If there are no results, display a message indicating that.
@@ -122,15 +121,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <td>Total Time: ' . $row['TripTime'] . '</td>
                         <td>Price: ' . $row['Price'] . '</td>
                     </tr>
-            </form>
-            <div class="container container2">
-            <button class="button" type="button" onclick="checkBookingPage()"> Back</button>
-            <button class="button" type="button" onclick="deleteBooking()" style="color: red;">DELETE</button>
-            </div>';
+                    
+                    <tr id="button_row" class="container container2">
+                    <td colspan="4">
+                        <button class="button" type="button" onclick="checkBookingPage()">Back</button>
+                        <button class="button" type="button" onclick="printTable(\'print_table\')">Print Booking</button>
+                        <button class="button" type="button" onclick="deleteBooking()" style="color: red;">DELETE</button>
+                    </td>
+                </tr>
+            </form>';
 
                 echo $print;
                 exit();
-
             }
         } else {
             // If there are no results, display a message indicating that.
@@ -186,12 +188,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <td>Arrival Time: ' . $row['Arrival'] . '</td>
                                 <td>Total Time: ' . $row['TripTime'] . '</td>
                                 <td>Price: ' . $row['Price'] . '</td>
+   
+
+                            <tr id="button_row" class="container container2">
+                                <td colspan="4">
+                                    <button class="button" type="button" onclick="checkBookingPage()">Back</button>
+                                    <button class="button" type="button" onclick="printTable(\'print_table\')">Print Booking</button>
+                                    <button class="button" type="button" onclick="deleteBooking()" style="color: red;">DELETE</button>
+                                </td>
                             </tr>
                     </form>
-                    <div class="container container2">
-                    <button class="button" type="button" onclick="checkBookingPage()"> Back</button>
-                    <button class="button" type="button" onclick="deleteBooking()" style="color: red;">DELETE</button>
-                    </div>';
+                    ';
 
 
                 echo $print;
@@ -214,4 +221,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Handle non-POST requests if necessary
     echo 'Invalid request method.';
 }
-?>
